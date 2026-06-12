@@ -4,8 +4,13 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
 
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.model.Filters;
+import org.bson.Document;
+
 /**
- * Utility class for Authentication-related logic such as processing passwords.
+ * Utility class for Authentication-related logic such as processing passwords and logging in.
  */
 public class Auth {
 
@@ -40,5 +45,26 @@ public class Auth {
         }
         String newlyHashed = hashPassword(plainTextPassword);
         return newlyHashed.equals(hashedPassword);
+    }
+
+    /**
+     * Authenticates a user based on username and password against the MongoDB database.
+     *
+     * @param username The username input.
+     * @param password The plaintext password input.
+     * @return true if authentication is successful, false otherwise.
+     */
+    public static boolean authenticate(String username, String password) {
+        if (username == null || password == null) return false;
+
+        MongoDatabase database = MongoConfig.getDatabase();
+        MongoCollection<Document> usersCollection = database.getCollection("users");
+
+        Document user = usersCollection.find(Filters.eq("username", username)).first();
+        if (user != null) {
+            String storedPassword = user.getString("password");
+            return verifyPassword(password, storedPassword);
+        }
+        return false;
     }
 }

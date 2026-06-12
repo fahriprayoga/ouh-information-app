@@ -14,7 +14,7 @@ public class OuhApplication extends Application {
     public void start(Stage stage) throws IOException {
         Application.setUserAgentStylesheet(new PrimerLight().getUserAgentStylesheet());
         Router.setPrimaryStage(stage);
-        FXMLLoader fxmlLoader = new FXMLLoader(OuhApplication.class.getResource("fxml/login.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(OuhApplication.class.getResource("fxml/hello-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
         stage.setTitle("OUH Information App");
         stage.setScene(scene);
