@@ -81,7 +81,14 @@ public class SectionDetailController {
         }
     }
 
+    private void syncComponentsFromUI() {
+        for (ContentComponent comp : components) {
+            comp.setContent(comp.getContentFromEditor());
+        }
+    }
+
     private void addComponent(String type) {
+        syncComponentsFromUI();
         ContentComponent comp;
         switch (type) {
             case "heading":
@@ -99,11 +106,13 @@ public class SectionDetailController {
     }
 
     private void removeComponent(ContentComponent comp) {
+        syncComponentsFromUI();
         components.remove(comp);
         renderAllComponents();
     }
 
     private void moveUp(ContentComponent comp) {
+        syncComponentsFromUI();
         int index = components.indexOf(comp);
         if (index > 0) {
             Collections.swap(components, index, index - 1);
@@ -112,6 +121,7 @@ public class SectionDetailController {
     }
 
     private void moveDown(ContentComponent comp) {
+        syncComponentsFromUI();
         int index = components.indexOf(comp);
         if (index < components.size() - 1) {
             Collections.swap(components, index, index + 1);
@@ -123,7 +133,7 @@ public class SectionDetailController {
         contentComponentsContainer.getChildren().clear();
 
         if (components.isEmpty()) {
-            Label emptyLabel = new Label("Belum ada komponen. Klik tombol di atas untuk menambahkan konten.");
+            Label emptyLabel = new Label("Belum ada komponen. pilih menu disamping untuk menambahkan konten.");
             emptyLabel.setStyle("-fx-font-size: 14px; -fx-text-fill: #94a3b8; -fx-padding: 20;");
             contentComponentsContainer.getChildren().add(emptyLabel);
             return;
@@ -185,17 +195,22 @@ public class SectionDetailController {
         MongoCollection<Document> collection = db.getCollection("sections");
 
         // Build content array from components
-        List<Document> contentDocs = new ArrayList<>();
+        List<Document> contentList = new ArrayList<>();
         for (ContentComponent comp : components) {
-            contentDocs.add(comp.toDocument());
+            contentList.add(comp.toDocument());
         }
 
-        Document updates = new Document()
-            .append("title", titleField.getText())
-            .append("description", descField.getText())
-            .append("content", contentDocs);
+        String username = com.ouhinformation.utils.Session.getInstance().getUsername();
+        if (username == null) username = "admin";
+        String now = java.time.ZonedDateTime.now(java.time.ZoneOffset.UTC)
+                .format(java.time.format.DateTimeFormatter.ISO_INSTANT);
 
-        Document updateDoc = new Document("$set", updates);
+        Document updateLog = new Document("by", username).append("at", now);
+        
+        Document updateDoc = new Document("$set", new Document("title", titleField.getText())
+                .append("description", descField.getText())
+                .append("content", contentList))
+                .append("$push", new Document("updated", updateLog));
 
         collection.updateOne(new Document("_id", new ObjectId(currentSectionId)), updateDoc);
 

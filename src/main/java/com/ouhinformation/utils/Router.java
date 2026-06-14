@@ -7,6 +7,9 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.ZonedDateTime;
+import java.time.ZoneOffset;
+import java.time.format.DateTimeFormatter;
 
 /**
  * Utility class for managing routing and screen navigation in JavaFX.
@@ -14,6 +17,15 @@ import java.net.URL;
 public class Router {
 
     private static Stage primaryStage;
+    private static String currentFxml;
+
+    public static String getCurrentFxml() {
+        return currentFxml;
+    }
+
+    public static String getTimestamp() {
+        return ZonedDateTime.now(ZoneOffset.UTC).format(DateTimeFormatter.ISO_INSTANT);
+    }
 
     /**
      * Sets the primary stage of the application. 
@@ -49,6 +61,8 @@ public class Router {
             if (resource == null) {
                 throw new IOException("Cannot find FXML file: " + fxmlFile);
             }
+
+            currentFxml = fxmlFile;
 
             FXMLLoader loader = new FXMLLoader(resource);
             Parent root = loader.load();

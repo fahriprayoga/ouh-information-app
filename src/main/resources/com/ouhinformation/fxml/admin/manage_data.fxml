@@ -34,8 +34,9 @@
                 </padding>
 
                 <HBox alignment="CENTER_LEFT" spacing="10.0">
-                    <Label text="Kelola Informasi Website" style="-fx-font-size: 24px; -fx-font-weight: 800; -fx-text-fill: #0f172a;" />
+                    <Label text="Kelola Informasi" style="-fx-font-size: 24px; -fx-font-weight: 800; -fx-text-fill: #0f172a;" />
                     <Region HBox.hgrow="ALWAYS" />
+                    <Button fx:id="addSectionButton" text="+ Tambah Informasi" style="-fx-background-color: #10b981; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 15; -fx-background-radius: 6; -fx-cursor: hand;" />
                     <Button fx:id="refreshButton" text="Refresh Data" style="-fx-background-color: #f1f5f9; -fx-text-fill: #475569; -fx-font-weight: bold; -fx-padding: 8 15; -fx-background-radius: 6; -fx-cursor: hand;" />
                 </HBox>
                 

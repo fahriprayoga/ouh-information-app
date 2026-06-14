@@ -15,6 +15,10 @@ public abstract class ContentComponent {
         this.content = content != null ? content : "";
     }
 
+    public void setContent(String content) {
+        this.content = content != null ? content : "";
+    }
+
     /** Tipe komponen (heading, paragraf, list) */
     public abstract String getType();
 
