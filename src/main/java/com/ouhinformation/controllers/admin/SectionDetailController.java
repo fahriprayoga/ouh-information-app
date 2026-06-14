@@ -33,6 +33,7 @@ public class SectionDetailController {
     @FXML private TextField titleField;
     @FXML private TextField descField;
     @FXML private Button saveButton;
+    @FXML private Button previewButton;
     @FXML private Button addHeadingBtn;
     @FXML private Button addParagrafBtn;
     @FXML private Button addListBtn;
@@ -45,6 +46,7 @@ public class SectionDetailController {
     public void initialize() {
         backButton.setOnAction(e -> goBack());
         saveButton.setOnAction(e -> saveChanges());
+        previewButton.setOnAction(e -> handlePreview());
         addHeadingBtn.setOnAction(e -> addComponent("heading"));
         addParagrafBtn.setOnAction(e -> addComponent("paragraf"));
         addListBtn.setOnAction(e -> addComponent("list"));
@@ -221,6 +223,30 @@ public class SectionDetailController {
         alert.showAndWait();
 
         headerTitle.setText("Detail: " + titleField.getText());
+    }
+
+    private void handlePreview() {
+        syncComponentsFromUI();
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/ouhinformation/fxml/admin/preview.fxml"));
+            VBox previewRoot = loader.load();
+            
+            PreviewController controller = loader.getController();
+            controller.setData(titleField.getText(), descField.getText(), components);
+            
+            javafx.stage.Stage stage = new javafx.stage.Stage();
+            stage.setTitle("Preview Konten - " + titleField.getText());
+            stage.setScene(new javafx.scene.Scene(previewRoot));
+            stage.initModality(javafx.stage.Modality.APPLICATION_MODAL);
+            stage.show();
+        } catch (java.io.IOException e) {
+            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Gagal membuka preview");
+            alert.setContentText(e.getMessage());
+            alert.showAndWait();
+        }
     }
 
     private void goBack() {

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" 
+      fx:controller="com.ouhinformation.controllers.admin.PreviewController"
+      prefWidth="800.0" prefHeight="600.0" style="-fx-background-color: #f4f7f6;">
+    <padding>
+        <Insets top="20.0" right="20.0" bottom="20.0" left="20.0"/>
+    </padding>
+
+    <ScrollPane fitToWidth="true" style="-fx-background-color: transparent; -fx-background: transparent; -fx-border-color: transparent;">
+        <VBox spacing="35.0">
+            <padding>
+                <Insets top="10.0" right="40.0" bottom="30.0" left="40.0"/>
+            </padding>
+            
+            <VBox spacing="15.0" 
+                  style="-fx-background-color: white; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 15, 0, 0, 4); -fx-border-color: #f1f5f9; -fx-border-radius: 12; -fx-border-width: 1;">
+                <padding>
+                    <Insets top="30.0" right="30.0" bottom="30.0" left="30.0"/>
+                </padding>
+                
+                <Label fx:id="previewTitle" text="Title Preview" style="-fx-font-size: 26px; -fx-font-weight: 800; -fx-text-fill: #0f172a;" wrapText="true" />
+                <Label fx:id="previewDesc" text="Description Preview" wrapText="true" style="-fx-font-size: 15px; -fx-text-fill: #64748b; -fx-line-spacing: 6px;" />
+
+                <VBox fx:id="previewContentContainer" spacing="10.0" />
+            </VBox>
+        </VBox>
+    </ScrollPane>
+</VBox>
