@@ -13,31 +13,11 @@
             style="-fx-background-color: #f4f7f6;">
 
     <top>
-        <HBox alignment="CENTER_LEFT" spacing="10.0" prefHeight="65.0"
-              style="-fx-background-color: white; -fx-border-color: #e2e8f0; -fx-border-width: 0 0 1 0;">
-            <padding>
-                <Insets top="10.0" right="25.0" bottom="10.0" left="25.0"/>
-            </padding>
-            <Label text="Admin Dashboard" style="-fx-font-size: 22px; -fx-font-weight: 800; -fx-text-fill: #1e293b;"/>
-            <Region HBox.hgrow="ALWAYS" />
-            <Button text="Logout" fx:id="logoutButton" styleClass="danger" style="-fx-font-size: 14px; -fx-padding: 8 20 8 20; -fx-cursor: hand; -fx-font-weight: 700;"/>
-        </HBox>
+        <fx:include source="top_bar.fxml" />
     </top>
 
     <left>
-        <VBox spacing="5.0" prefWidth="260.0" 
-              style="-fx-background-color: white; -fx-border-color: #e2e8f0; -fx-border-width: 0 1 0 0;">
-            <padding>
-                <Insets top="25.0" right="15.0" bottom="25.0" left="15.0"/>
-            </padding>
-            
-            <Label text="MENU ADMIN" style="-fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #94a3b8; -fx-padding: 0 0 10 10;" />
-            
-            <Button text="Kelola Data" fx:id="manageDataButton" maxWidth="Infinity" style="-fx-alignment: CENTER-LEFT; -fx-font-size: 14px; -fx-padding: 10 15 10 15; -fx-background-color: transparent; -fx-cursor: hand;" />
-            <Button text="Pengaturan" fx:id="settingsButton" maxWidth="Infinity" style="-fx-alignment: CENTER-LEFT; -fx-font-size: 14px; -fx-padding: 10 15 10 15; -fx-background-color: transparent; -fx-cursor: hand;" />
-            
-            <Region VBox.vgrow="ALWAYS" />
-        </VBox>
+        <fx:include source="sidebar.fxml" fx:id="sidebar" />
     </left>
 
     <center>
@@ -46,7 +26,7 @@
                 <Insets top="35.0" right="35.0" bottom="35.0" left="35.0"/>
             </padding>
             
-            <VBox fx:id="adminContentContainer" spacing="15.0" 
+            <VBox spacing="15.0" 
                   style="-fx-background-color: white; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 15, 0, 0, 4); -fx-border-color: #f1f5f9; -fx-border-radius: 12; -fx-border-width: 1;" VBox.vgrow="ALWAYS">
                 <padding>
                     <Insets top="30.0" right="30.0" bottom="30.0" left="30.0"/>

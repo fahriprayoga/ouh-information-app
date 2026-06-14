@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.ouhinformation.controllers.admin.SettingsController"
+            style="-fx-background-color: #f4f7f6;">
+
+    <top>
+        <fx:include source="top_bar.fxml" />
+    </top>
+
+    <left>
+        <fx:include source="sidebar.fxml" />
+    </left>
+
+    <center>
+        <VBox>
+            <padding>
+                <Insets top="35.0" right="35.0" bottom="35.0" left="35.0"/>
+            </padding>
+            
+            <VBox spacing="25.0" 
+                  style="-fx-background-color: white; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 15, 0, 0, 4); -fx-border-color: #f1f5f9; -fx-border-radius: 12; -fx-border-width: 1;" VBox.vgrow="ALWAYS">
+                <padding>
+                    <Insets top="30.0" right="30.0" bottom="30.0" left="30.0"/>
+                </padding>
+                
+                <Label text="Pengaturan Aplikasi" style="-fx-font-size: 26px; -fx-font-weight: 800; -fx-text-fill: #0f172a;" />
+                
+                <VBox spacing="15.0">
+                    <VBox spacing="8.0">
+                        <Label text="Nama Aplikasi" style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #334155;" />
+                        <TextField text="OUH Information App" style="-fx-padding: 10; -fx-background-radius: 6; -fx-border-color: #cbd5e1; -fx-border-radius: 6;" />
+                    </VBox>
+                    
+                    <VBox spacing="8.0">
+                        <Label text="Alamat Email Admin" style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #334155;" />
+                        <TextField text="admin@ouh.ac.id" style="-fx-padding: 10; -fx-background-radius: 6; -fx-border-color: #cbd5e1; -fx-border-radius: 6;" />
+                    </VBox>
+                </VBox>
+                
+                <Separator />
+                
+                <Button fx:id="saveSettingsButton" text="Simpan Pengaturan" styleClass="accent" 
+                        style="-fx-font-weight: bold; -fx-padding: 10 25; -fx-cursor: hand;" />
+            </VBox>
+        </VBox>
+    </center>
+
+</BorderPane>

@@ -18,6 +18,8 @@ import com.ouhinformation.components.HeadingComponent;
 import com.ouhinformation.components.ListComponent;
 import com.ouhinformation.components.ParagraphComponent;
 import com.ouhinformation.utils.MongoConfig;
+import com.ouhinformation.utils.Router;
+import javafx.scene.control.Alert;
 import org.bson.Document;
 import org.bson.types.ObjectId;
 
@@ -36,13 +38,8 @@ public class SectionDetailController {
     @FXML private Button addListBtn;
     @FXML private VBox contentComponentsContainer;
 
-    private AdminController adminController;
     private String currentSectionId;
     private final List<ContentComponent> components = new ArrayList<>();
-
-    public void setAdminController(AdminController adminController) {
-        this.adminController = adminController;
-    }
 
     @FXML
     public void initialize() {
@@ -202,21 +199,16 @@ public class SectionDetailController {
 
         collection.updateOne(new Document("_id", new ObjectId(currentSectionId)), updateDoc);
 
-        headerTitle.setText("Detail: " + titleField.getText() + " (Tersimpan ✓)");
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Sukses");
+        alert.setHeaderText(null);
+        alert.setContentText("Konten berhasil disimpan ke database!");
+        alert.showAndWait();
+
+        headerTitle.setText("Detail: " + titleField.getText());
     }
 
     private void goBack() {
-        if (adminController == null) return;
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/ouhinformation/fxml/admin/manage_data.fxml"));
-            Node view = loader.load();
-
-            ManageDataController controller = loader.getController();
-            controller.setAdminController(adminController);
-
-            adminController.setCenterView(view);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        Router.navigate("admin/manage_data", "Kelola Data");
     }
 }
