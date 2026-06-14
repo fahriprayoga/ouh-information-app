@@ -6,6 +6,17 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.animation.PauseTransition;
+import javafx.util.Duration;
+
+import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.model.Filters;
+import org.bson.Document;
+import com.ouhinformation.utils.MongoConfig;
+import com.ouhinformation.utils.Auth;
+import com.ouhinformation.utils.Session;
+import com.ouhinformation.utils.Router;
 
 public class LoginController {
 
@@ -26,6 +37,9 @@ public class LoginController {
 
     @FXML
     private Label messageLabel;
+
+    @FXML
+    private Button backButton;
 
     @FXML
     public void initialize() {
@@ -63,6 +77,9 @@ public class LoginController {
 
         // Add action for login button
         loginButton.setOnAction(e -> handleLogin());
+        
+        // Add action for back button
+        backButton.setOnAction(e -> Router.navigate("hello-view", "OUH Information App"));
     }
 
     @FXML
@@ -72,12 +89,47 @@ public class LoginController {
         
         // Simple validation
         if (username == null || username.trim().isEmpty() || password == null || password.isEmpty()) {
-            messageLabel.setText("Please enter both username and password");
-            messageLabel.setStyle("-fx-text-fill: red;");
+            showMessage("Username atau password tidak boleh kosong", "-fx-text-fill: red;");
             return;
         }
 
-        // TODO: Add actual authentication logic here
-        com.ouhinformation.utils.Router.navigate("hello-view", "Dashboard");
+        // Auth and get user data
+        MongoDatabase database = MongoConfig.getDatabase();
+        MongoCollection<Document> usersCollection = database.getCollection("users");
+        
+        Document user = usersCollection.find(Filters.eq("username", username)).first();
+
+        if (user != null) {
+            String storedPassword = user.getString("password");
+            if (Auth.verifyPassword(password, storedPassword)) {
+                Session session = Session.getInstance();
+                
+                Object idObj = user.get("id");
+                if (idObj instanceof Integer) {
+                    session.setUserId((Integer) idObj);
+                } else {
+                    session.setAttribute("userId", idObj);
+                }
+                
+                session.setAttribute("name", user.getString("name"));
+                session.setUsername(user.getString("username"));
+                session.setAttribute("created_at", user.get("created_at"));
+
+                Router.navigate("admin/admin", "Admin Dashboard");
+            } else {
+                showMessage("Password anda salah", "-fx-text-fill: red;");
+            }
+        } else {
+            showMessage("Username tidak ditemukan", "-fx-text-fill: red;");
+        }
+    }
+
+    private void showMessage(String message, String style) {
+        messageLabel.setText(message);
+        messageLabel.setStyle(style);
+        
+        PauseTransition pause = new PauseTransition(Duration.seconds(5));
+        pause.setOnFinished(event -> messageLabel.setText(""));
+        pause.play();
     }
 }

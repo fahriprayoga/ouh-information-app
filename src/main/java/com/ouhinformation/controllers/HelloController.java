@@ -7,6 +7,8 @@ import javafx.scene.layout.VBox;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.ouhinformation.utils.MongoConfig;
+import com.ouhinformation.utils.Router;
+
 import org.bson.Document;
 import java.util.List;
 
@@ -26,7 +28,7 @@ public class HelloController {
     }
 
     private void handleLogin() {
-        System.out.println("Login button clicked");
+        Router.navigate("login");
     }
 
     private void loadSections() {

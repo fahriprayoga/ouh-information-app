@@ -5,66 +5,53 @@
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ouhinformation.controllers.LoginController">
+<BorderPane prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ouhinformation.controllers.LoginController">
 
     <center>
-        <HBox alignment="CENTER" style="-fx-background-color: #fdfaf6;" BorderPane.alignment="CENTER">
-            <VBox alignment="CENTER" prefHeight="539.0" prefWidth="422.0" spacing="30.0" style="-fx-background-color: #ffffff; -fx-background-radius: 20; -fx-effect: dropshadow(three-pass-box, rgba(230, 126, 34, 0.05), 30, 0, 0, 10);" HBox.hgrow="NEVER">
+        <StackPane BorderPane.alignment="CENTER">
+            <VBox alignment="CENTER" maxWidth="-Infinity" maxHeight="-Infinity" prefWidth="380.0" spacing="25.0" style="-fx-background-color: -color-bg-default; -fx-background-radius: 12;" styleClass="elevated-2">
                 <padding>
-                    <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+                    <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
                 </padding>
 
-                <VBox alignment="CENTER" spacing="10.0">
-                    <Label style="-fx-font-size: 28px; -fx-font-weight: 800; -fx-text-fill: #d35400; -fx-font-family: 'System';" text="Welcome Back" />
-                    <Label style="-fx-font-size: 13px; -fx-text-fill: #5c6b73; -fx-font-weight: 500;" text="Masukkan kredensial untuk lanjut" />
+                <VBox alignment="CENTER" spacing="5.0">
+                    <Label styleClass="title-2" text="Welcome Back" />
+                    <Label styleClass="text-muted" text="Masukkan username dan password untuk lanjut" />
                 </VBox>
 
-                <Separator prefWidth="320.0" style="-fx-opacity: 0.4; -fx-background-color: #e0e0e0;" />
+                <VBox spacing="15.0">
 
-                <VBox spacing="22.0" style="-fx-pref-width: 320px;">
-
-                    <VBox spacing="6.0">
-                        <Label style="-fx-font-size: 11px; -fx-font-weight: bold; -fx-text-fill: #5c6b73; -fx-letter-spacing: 1px;" text="USERNAME" />
-                        <TextField fx:id="usernameField" promptText="e.g. alex_orange" style="-fx-background-color: #fafbfc; -fx-background-radius: 10; -fx-border-color: #e2e8f0; -fx-border-radius: 10; -fx-border-width: 1.5; -fx-padding: 12; -fx-text-fill: #2d3748;">
-                            <font>
-                                <Font name="System" size="14.0" />
-                            </font>
-                        </TextField>
+                    <VBox spacing="5.0">
+                        <Label styleClass="text-muted" style="-fx-font-size: 11px; -fx-font-weight: bold;" text="USERNAME" />
+                        <TextField fx:id="usernameField" promptText="e.g. baratheon" />
                     </VBox>
 
-                    <VBox spacing="6.0">
-                        <Label style="-fx-font-size: 11px; -fx-font-weight: bold; -fx-text-fill: #5c6b73; -fx-letter-spacing: 1px;" text="PASSWORD" />
+                    <VBox spacing="5.0">
+                        <Label styleClass="text-muted" style="-fx-font-size: 11px; -fx-font-weight: bold;" text="PASSWORD" />
                         <VBox>
-                            <PasswordField fx:id="passwordField" promptText="enter your password" style="-fx-background-color: #fafbfc; -fx-background-radius: 10; -fx-border-color: #e2e8f0; -fx-border-radius: 10; -fx-border-width: 1.5; -fx-padding: 12; -fx-text-fill: #2d3748;">
-                                <font>
-                                    <Font name="System" size="14.0" />
-                                </font>
-                            </PasswordField>
-                            <TextField fx:id="visiblePasswordField" managed="false" promptText="Enter your password" style="-fx-background-color: #fafbfc; -fx-background-radius: 10; -fx-border-color: #e2e8f0; -fx-border-radius: 10; -fx-border-width: 1.5; -fx-padding: 12; -fx-text-fill: #2d3748;" visible="false">
-                                <font>
-                                    <Font name="System" size="14.0" />
-                                </font>
-                            </TextField>
+                            <PasswordField fx:id="passwordField" promptText="enter your password" />
+                            <TextField fx:id="visiblePasswordField" managed="false" promptText="enter your password" visible="false" />
                         </VBox>
                     </VBox>
 
                     <HBox alignment="CENTER_LEFT">
-                        <CheckBox fx:id="showPasswordCheckBox" style="-fx-text-fill: #5c6b73; -fx-font-size: 12px; -fx-cursor: hand; -fx-font-weight: 500;" text="Show Password" />
+                        <CheckBox fx:id="showPasswordCheckBox" text="Show Password" />
                     </HBox>
 
-                    <Button fx:id="loginButton" maxWidth="1.7976931348623157E308" style="-fx-background-color: linear-gradient(to right, #e67e22, #d35400); -fx-background-radius: 10; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-padding: 14; -fx-cursor: hand; -fx-effect: dropshadow(three-pass-box, rgba(230, 126, 34, 0.2), 15, 0, 0, 5);" text="LOG IN" />
+                    <Button fx:id="loginButton" maxWidth="1.7976931348623157E308" styleClass="accent" text="LOG IN" />
+                    
+                    <Button fx:id="backButton" maxWidth="1.7976931348623157E308" text="Kembali ke Beranda" />
 
-                    <Label fx:id="messageLabel" alignment="CENTER" maxWidth="1.7976931348623157E308" style="-fx-font-size: 12px; -fx-font-weight: 600;" textAlignment="CENTER" textFill="#e74c3c" wrapText="true" />
+                    <Label fx:id="messageLabel" alignment="CENTER" maxWidth="1.7976931348623157E308" styleClass="danger" wrapText="true" />
 
                 </VBox>
             </VBox>
-        </HBox>
+        </StackPane>
     </center>
 </BorderPane>

@@ -10,6 +10,7 @@ module com.ouhinformation {
 
     // Buka package controller untuk JavaFX FXML
     opens com.ouhinformation.controllers to javafx.fxml;
+    opens com.ouhinformation.controllers.admin to javafx.fxml;
 
     opens com.ouhinformation to javafx.fxml;
     exports com.ouhinformation;
