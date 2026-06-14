@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.ouhinformation.controllers.admin.SectionDetailController"
+      spacing="20.0" VBox.vgrow="ALWAYS" style="-fx-background-color: white;">
+    
+    <!-- Header: Back + Title + Save -->
+    <HBox alignment="CENTER_LEFT" spacing="15.0">
+        <Button fx:id="backButton" text="&lt; Kembali" style="-fx-background-color: transparent; -fx-text-fill: #64748b; -fx-font-size: 14px; -fx-cursor: hand;" />
+        <Label fx:id="headerTitle" text="Detail Section" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #1e293b;" />
+        <Region HBox.hgrow="ALWAYS" />
+        <Button fx:id="saveButton" text="Simpan Perubahan" style="-fx-background-color: #10b981; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 15; -fx-background-radius: 6; -fx-cursor: hand;" />
+    </HBox>
+
+    <!-- Title field -->
+    <VBox spacing="8.0">
+        <Label text="Judul Section" style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #334155;" />
+        <TextField fx:id="titleField" promptText="Masukkan judul section" 
+                   style="-fx-font-size: 14px; -fx-padding: 10; -fx-background-radius: 6; -fx-border-color: #cbd5e1; -fx-border-radius: 6;" />
+    </VBox>
+
+    <!-- Description field -->
+    <VBox spacing="8.0">
+        <Label text="Deskripsi Singkat" style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #334155;" />
+        <TextField fx:id="descField" promptText="Masukkan deskripsi singkat..." 
+                   style="-fx-font-size: 14px; -fx-padding: 10; -fx-background-radius: 6; -fx-border-color: #cbd5e1; -fx-border-radius: 6;" />
+    </VBox>
+
+    <Separator style="-fx-padding: 5 0 5 0;" />
+
+    <!-- CMS Toolbar: Add Components -->
+    <VBox spacing="10.0">
+        <Label text="Konten Section" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #334155;" />
+        <Label text="Tambahkan komponen konten yang diinginkan:" style="-fx-font-size: 13px; -fx-text-fill: #94a3b8;" />
+        <HBox spacing="10.0">
+            <Button fx:id="addHeadingBtn" text="+ Heading" 
+                    style="-fx-background-color: #6366f1; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 16; -fx-background-radius: 6; -fx-cursor: hand; -fx-font-size: 13px;" />
+            <Button fx:id="addParagrafBtn" text="+ Paragraf" 
+                    style="-fx-background-color: #3b82f6; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 16; -fx-background-radius: 6; -fx-cursor: hand; -fx-font-size: 13px;" />
+            <Button fx:id="addListBtn" text="+ List" 
+                    style="-fx-background-color: #0ea5e9; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 16; -fx-background-radius: 6; -fx-cursor: hand; -fx-font-size: 13px;" />
+        </HBox>
+    </VBox>
+
+    <!-- Component Container (Scrollable) -->
+    <ScrollPane fitToWidth="true" style="-fx-background-color: transparent; -fx-background: transparent;" VBox.vgrow="ALWAYS">
+        <content>
+            <VBox fx:id="contentComponentsContainer" spacing="15.0" style="-fx-background-color: transparent;">
+                <padding>
+                    <Insets top="5.0" right="5.0" bottom="15.0" left="5.0"/>
+                </padding>
+            </VBox>
+        </content>
+    </ScrollPane>
+
+</VBox>

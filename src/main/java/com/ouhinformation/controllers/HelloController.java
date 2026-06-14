@@ -6,6 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import com.ouhinformation.components.ContentComponent;
 import com.ouhinformation.utils.MongoConfig;
 import com.ouhinformation.utils.Router;
 
@@ -68,16 +69,9 @@ public class HelloController {
         List<Document> contents = doc.getList("content", Document.class);
         if (contents != null) {
             for (Document contentDoc : contents) {
-                String type = contentDoc.getString("type");
-                String contentStr = contentDoc.getString("content");
-                
-                if ("paragraf".equals(type) || "text".equals(type)) {
-                    Label p = new Label(contentStr);
-                    p.setWrapText(true);
-                    p.setStyle("-fx-font-size: 15px; -fx-text-fill: #475569; -fx-line-spacing: 5px;");
-                    contentContainer.getChildren().add(p);
-                } else if ("image".equals(type)) {
-                    // Logic for image if applicable
+                ContentComponent comp = ContentComponent.fromDocument(contentDoc);
+                if (comp != null) {
+                    contentContainer.getChildren().add(comp.renderView());
                 }
             }
         }
