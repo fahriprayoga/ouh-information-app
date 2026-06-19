@@ -13,7 +13,7 @@
     <padding>
         <Insets top="10.0" right="25.0" bottom="10.0" left="25.0"/>
     </padding>
-    <Label text="Admin Dashboard" style="-fx-font-size: 22px; -fx-font-weight: 800; -fx-text-fill: #1e293b;"/>
+    <Label text="Admin Dashboard" style="-fx-font-size: 22px; -fx-font-weight: 900; -fx-text-fill: #064e3b;"/>
     <Region HBox.hgrow="ALWAYS" />
-    <Button text="Logout" fx:id="logoutButton" styleClass="danger" style="-fx-font-size: 14px; -fx-padding: 8 20 8 20; -fx-cursor: hand; -fx-font-weight: 700;"/>
+    <Button text="Logout" fx:id="logoutButton" style="-fx-background-color: #ef4444; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 8 20 8 20; -fx-cursor: hand; -fx-font-weight: 700; -fx-background-radius: 6;"/>
 </HBox>

@@ -10,10 +10,25 @@ import org.bson.Document;
 public abstract class ContentComponent {
 
     protected String content;
+    protected String color;
+    protected Integer fontSize;
+    protected String textAlign;
 
     public ContentComponent(String content) {
         this.content = content != null ? content : "";
+        this.color = "#475569"; // default
+        this.fontSize = 14;    // default
+        this.textAlign = "LEFT"; // default
     }
+
+    public String getColor() { return color; }
+    public void setColor(String color) { if (color != null) this.color = color; }
+
+    public Integer getFontSize() { return fontSize; }
+    public void setFontSize(Integer fontSize) { if (fontSize != null) this.fontSize = fontSize; }
+
+    public String getTextAlign() { return textAlign; }
+    public void setTextAlign(String textAlign) { if (textAlign != null) this.textAlign = textAlign; }
 
     public void setContent(String content) {
         this.content = content != null ? content : "";
@@ -37,7 +52,10 @@ public abstract class ContentComponent {
     /** Konversi ke BSON Document untuk simpan ke MongoDB */
     public Document toDocument() {
         return new Document("type", getType())
-                .append("content", getContentFromEditor());
+                .append("content", getContentFromEditor())
+                .append("color", color)
+                .append("fontSize", fontSize)
+                .append("textAlign", textAlign);
     }
 
     /** Factory method: buat komponen dari BSON Document */
@@ -46,17 +64,29 @@ public abstract class ContentComponent {
         String type = doc.getString("type");
         String content = doc.getString("content");
 
+        ContentComponent comp;
         switch (type != null ? type : "") {
             case "heading":
-                return new HeadingComponent(content);
+                comp = new HeadingComponent(content);
+                break;
+            case "image":
+                comp = ImageComponent.fromDoc(doc);
+                break;
+            case "list":
+                comp = ListComponent.fromDoc(doc);
+                break;
             case "paragraf":
             case "text":
-                return new ParagraphComponent(content);
-            case "list":
-                return new ListComponent(content);
             default:
-                // Fallback: treat unknown types as paragraph
-                return new ParagraphComponent(content);
+                comp = new ParagraphComponent(content);
+                break;
         }
+
+        if (comp != null) {
+            comp.setColor(doc.getString("color"));
+            comp.setFontSize(doc.getInteger("fontSize"));
+            comp.setTextAlign(doc.getString("textAlign"));
+        }
+        return comp;
     }
 }

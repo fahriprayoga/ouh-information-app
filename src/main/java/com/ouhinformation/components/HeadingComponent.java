@@ -1,8 +1,10 @@
 package com.ouhinformation.components;
 
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.text.TextAlignment;
 
 /**
  * Komponen heading — tampil sebagai judul besar di user view.
@@ -14,6 +16,7 @@ public class HeadingComponent extends ContentComponent {
 
     public HeadingComponent(String content) {
         super(content);
+        this.fontSize = 20; // Default heading size
     }
 
     @Override
@@ -42,8 +45,25 @@ public class HeadingComponent extends ContentComponent {
     public Node renderView() {
         Label label = new Label(content);
         label.setWrapText(true);
+        label.setMaxWidth(Double.MAX_VALUE);
+        label.setMinHeight(javafx.scene.layout.Region.USE_PREF_SIZE);
+        
+        String align = textAlign != null ? textAlign : "LEFT";
+        if ("CENTER".equals(align)) {
+            label.setAlignment(Pos.CENTER);
+            label.setTextAlignment(TextAlignment.CENTER);
+        } else if ("RIGHT".equals(align)) {
+            label.setAlignment(Pos.CENTER_RIGHT);
+            label.setTextAlignment(TextAlignment.RIGHT);
+        } else {
+            label.setAlignment(Pos.CENTER_LEFT);
+            label.setTextAlignment(TextAlignment.LEFT);
+        }
+        
         label.setStyle(
-            "-fx-font-size: 20px; -fx-font-weight: 800; -fx-text-fill: #1e293b;"
+            "-fx-font-size: " + fontSize + "px; " +
+            "-fx-font-weight: 800; " +
+            "-fx-text-fill: " + color + ";"
         );
         return label;
     }

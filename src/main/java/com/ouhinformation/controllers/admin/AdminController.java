@@ -27,7 +27,7 @@ public class AdminController {
 
        // Reset styles
        String inactiveStyle = "-fx-alignment: CENTER-LEFT; -fx-font-size: 14px; -fx-padding: 10 15 10 15; -fx-background-color: transparent; -fx-cursor: hand;";
-       String activeStyle = "-fx-alignment: CENTER-LEFT; -fx-font-size: 14px; -fx-padding: 10 15 10 15; -fx-background-color: #f1f5f9; -fx-font-weight: bold;";
+       String activeStyle = "-fx-alignment: CENTER-LEFT; -fx-font-size: 14px; -fx-padding: 10 15 10 15; -fx-background-color: #ecfdf5; -fx-text-fill: #10b981; -fx-font-weight: bold; -fx-border-color: #10b981; -fx-border-width: 0 0 0 4;";
 
        if (dashboardButton != null) dashboardButton.setStyle(inactiveStyle);
        if (manageDataButton != null) manageDataButton.setStyle(inactiveStyle);

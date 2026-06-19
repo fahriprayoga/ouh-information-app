@@ -34,7 +34,7 @@
                 <Label fx:id="headerTitle" text="Detail Informasi" style="-fx-font-size: 24px; -fx-font-weight: 800; -fx-text-fill: #1e293b;" />
                 <Region HBox.hgrow="ALWAYS" />
                 <Button fx:id="previewButton" text="Preview" style="-fx-background-color: #f1f5f9; -fx-text-fill: #475569; -fx-font-weight: bold; -fx-padding: 8 20; -fx-background-radius: 6; -fx-cursor: hand;" />
-                <Button fx:id="saveButton" text="Simpan Perubahan" style="-fx-background-color: #6366f1; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 20; -fx-background-radius: 6; -fx-cursor: hand;" />
+                <Button fx:id="saveButton" text="Simpan Perubahan" style="-fx-background-color: #10b981; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 20; -fx-background-radius: 6; -fx-cursor: hand;" />
             </HBox>
 
             <HBox spacing="24.0" VBox.vgrow="ALWAYS">
@@ -77,20 +77,22 @@
                     <VBox spacing="8.0">
                         <Label text="TAMBAHKAN KOMPONEN" style="-fx-font-size: 11px; -fx-font-weight: 900; -fx-text-fill: #94a3b8;" />
                         <Button fx:id="addHeadingBtn" text="+ Heading" maxWidth="Infinity"
-                                style="-fx-background-color: #6366f1; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 12; -fx-background-radius: 8; -fx-cursor: hand;" />
+                                style="-fx-background-color: #059669; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 12; -fx-background-radius: 8; -fx-cursor: hand;" />
                         <Button fx:id="addParagrafBtn" text="+ Paragraf" maxWidth="Infinity"
-                                style="-fx-background-color: #3b82f6; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 12; -fx-background-radius: 8; -fx-cursor: hand;" />
+                                style="-fx-background-color: #10b981; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 12; -fx-background-radius: 8; -fx-cursor: hand;" />
                         <Button fx:id="addListBtn" text="+ List" maxWidth="Infinity"
-                                style="-fx-background-color: #0ea5e9; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 12; -fx-background-radius: 8; -fx-cursor: hand;" />
+                                style="-fx-background-color: #34d399; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 12; -fx-background-radius: 8; -fx-cursor: hand;" />
+                        <Button fx:id="addImageBtn" text="+ Gambar" maxWidth="Infinity"
+                                style="-fx-background-color: #6ee7b7; -fx-text-fill: #064e3b; -fx-font-weight: bold; -fx-padding: 12; -fx-background-radius: 8; -fx-cursor: hand;" />
                     </VBox>
 
                     <Region VBox.vgrow="ALWAYS" />
 
-                    <VBox spacing="10.0" style="-fx-background-color: #f1f5f9; -fx-padding: 15; -fx-background-radius: 8;">
-                        <Label text="Petunjuk Editor" style="-fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #1e293b;" />
-                        <Label text="• Preview sebelum simpan untuk melihat tampilan user." wrapText="true" style="-fx-font-size: 12px; -fx-text-fill: #64748b;" />
-                        <Label text="• Gunakan panah untuk mengatur urutan komponen." wrapText="true" style="-fx-font-size: 12px; -fx-text-fill: #64748b;" />
-                        <Label text="• Klik ikon sampah untuk menghapus komponen." wrapText="true" style="-fx-font-size: 12px; -fx-text-fill: #64748b;" />
+                    <VBox spacing="10.0" style="-fx-background-color: #ecfdf5; -fx-padding: 15; -fx-background-radius: 8;">
+                        <Label text="Petunjuk Editor" style="-fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #064e3b;" />
+                        <Label text="• Preview sebelum simpan untuk melihat tampilan user." wrapText="true" style="-fx-font-size: 12px; -fx-text-fill: #065f46;" />
+                        <Label text="• Gunakan panah untuk mengatur urutan komponen." wrapText="true" style="-fx-font-size: 12px; -fx-text-fill: #065f46;" />
+                        <Label text="• Klik ikon sampah untuk menghapus komponen." wrapText="true" style="-fx-font-size: 12px; -fx-text-fill: #065f46;" />
                     </VBox>
                 </VBox>
             </HBox>
