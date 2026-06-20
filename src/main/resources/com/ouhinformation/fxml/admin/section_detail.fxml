@@ -52,6 +52,11 @@
                             <TextField fx:id="descField" promptText="Masukkan deskripsi pendek..." 
                                        style="-fx-font-size: 14px; -fx-padding: 10; -fx-background-radius: 6; -fx-border-color: #cbd5e1; -fx-border-radius: 6; -fx-background-color: #f8fafc;" />
                         </VBox>
+                        <VBox spacing="8.0">
+                            <Label text="KATEGORI (OPTIONAL)" style="-fx-font-size: 11px; -fx-font-weight: 900; -fx-text-fill: #94a3b8;" />
+                            <javafx.scene.control.ComboBox fx:id="categoryComboBox" promptText="Pilih kategori..." 
+                                       style="-fx-font-size: 14px; -fx-padding: 5; -fx-background-radius: 6; -fx-border-color: #cbd5e1; -fx-border-radius: 6; -fx-background-color: #f8fafc; -fx-min-width: 300;" />
+                        </VBox>
                     </VBox>
 
                     <!-- Dynamic Components Container -->

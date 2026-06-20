@@ -8,13 +8,13 @@ import com.ouhinformation.utils.Router;
 public class AdminController {
    @FXML private Button logoutButton;
    @FXML private Button manageDataButton;
+   @FXML private Button manageCategoriesTabButton;
    @FXML private Button settingsButton;
-   @FXML private Button dashboardButton;
 
    @FXML
    public void initialize() {
-       if (dashboardButton != null) dashboardButton.setOnAction(e -> Router.navigate("admin/admin", "Admin Dashboard"));
        if (manageDataButton != null) manageDataButton.setOnAction(e -> Router.navigate("admin/manage_data", "Kelola Data"));
+       if (manageCategoriesTabButton != null) manageCategoriesTabButton.setOnAction(e -> Router.navigate("admin/manage_categories", "Kelola Kategori"));
        if (settingsButton != null) settingsButton.setOnAction(e -> Router.navigate("admin/settings", "Pengaturan"));
        if (logoutButton != null) logoutButton.setOnAction(e -> handleLogout());
        
@@ -29,18 +29,28 @@ public class AdminController {
        String inactiveStyle = "-fx-alignment: CENTER-LEFT; -fx-font-size: 14px; -fx-padding: 10 15 10 15; -fx-background-color: transparent; -fx-cursor: hand;";
        String activeStyle = "-fx-alignment: CENTER-LEFT; -fx-font-size: 14px; -fx-padding: 10 15 10 15; -fx-background-color: #ecfdf5; -fx-text-fill: #10b981; -fx-font-weight: bold; -fx-border-color: #10b981; -fx-border-width: 0 0 0 4;";
 
-       if (dashboardButton != null) dashboardButton.setStyle(inactiveStyle);
        if (manageDataButton != null) manageDataButton.setStyle(inactiveStyle);
+       if (manageCategoriesTabButton != null) manageCategoriesTabButton.setStyle(inactiveStyle);
        if (settingsButton != null) settingsButton.setStyle(inactiveStyle);
 
-       if (current.equals("admin/admin")) {
-           if (dashboardButton != null) dashboardButton.setStyle(activeStyle);
-       } else if (current.equals("admin/manage_data") || current.equals("admin/section_detail")) {
+       if (current.equals("admin/manage_data") || current.equals("admin/section_detail")) {
            if (manageDataButton != null) manageDataButton.setStyle(activeStyle);
+       } else if (current.equals("admin/manage_categories")) {
+           if (manageCategoriesTabButton != null) manageCategoriesTabButton.setStyle(activeStyle);
        } else if (current.equals("admin/settings")) {
            if (settingsButton != null) settingsButton.setStyle(activeStyle);
        }
    }
+
+    @FXML
+    public void goToManageCategoriesShortcut() {
+        Router.navigate("admin/manage_categories", "Kelola Kategori");
+    }
+    
+    @FXML
+    public void goToManageDataShortcut() {
+        Router.navigate("admin/manage_data", "Kelola Data");
+    }
 
     private void handleLogout() {
         Session.getInstance().clearSession();

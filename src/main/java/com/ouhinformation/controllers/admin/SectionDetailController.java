@@ -34,6 +34,7 @@ public class SectionDetailController {
     @FXML private Label headerTitle;
     @FXML private TextField titleField;
     @FXML private TextField descField;
+    @FXML private ComboBox<String> categoryComboBox;
     @FXML private Button saveButton;
     @FXML private Button previewButton;
     @FXML private Button addHeadingBtn;
@@ -67,10 +68,19 @@ public class SectionDetailController {
         if (doc != null) {
             String title = doc.getString("title");
             String desc = doc.getString("description");
+            String category = doc.getString("category");
 
             headerTitle.setText("Detail: " + (title != null ? title : "Unknown"));
             titleField.setText(title != null ? title : "");
             descField.setText(desc != null ? desc : "");
+            
+            categoryComboBox.getItems().clear();
+            categoryComboBox.getItems().add("Tidak Ada");
+            MongoCollection<Document> catColl = db.getCollection("categories");
+            for (Document d : catColl.find()) {
+                categoryComboBox.getItems().add(d.getString("name"));
+            }
+            categoryComboBox.setValue(category != null ? category : "Tidak Ada");
 
             // Load existing content components
             components.clear();
@@ -239,6 +249,13 @@ public class SectionDetailController {
             stylingControls.getChildren().addAll(colorPicker, sizePicker, alignGroup);
         }
 
+        ComboBox<Integer> marginPicker = new ComboBox<>();
+        marginPicker.getItems().addAll(0, 5, 10, 15, 20, 30, 40, 50, 80, 100);
+        marginPicker.setValue(comp.getMarginBottom() != null ? comp.getMarginBottom() : 15);
+        marginPicker.setStyle("-fx-background-color: transparent; -fx-border-color: #e2e8f0; -fx-border-radius: 4;");
+        marginPicker.setOnAction(e -> comp.setMarginBottom(marginPicker.getValue()));
+        stylingControls.getChildren().add(marginPicker);
+
         Region spacer = new Region();
         HBox.setHgrow(spacer, Priority.ALWAYS);
 
@@ -286,8 +303,12 @@ public class SectionDetailController {
 
         Document updateLog = new Document("by", username).append("at", now);
         
+        String selCat = categoryComboBox.getValue();
+        String finalCat = (selCat == null || selCat.trim().isEmpty() || selCat.equals("Tidak Ada")) ? null : selCat.trim();
+        
         Document updateDoc = new Document("$set", new Document("title", titleField.getText())
                 .append("description", descField.getText())
+                .append("category", finalCat)
                 .append("content", contentList)
                 .append("updatedAt", now))
                 .append("$push", new Document("updated", updateLog));

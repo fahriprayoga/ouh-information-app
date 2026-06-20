@@ -17,8 +17,8 @@
     
     <Label text="MENU ADMIN" style="-fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #94a3b8; -fx-padding: 0 0 10 10;" />
     
-    <Button text="Dashboard" fx:id="dashboardButton" maxWidth="Infinity" style="-fx-alignment: CENTER-LEFT; -fx-font-size: 14px; -fx-padding: 10 15 10 15; -fx-background-color: transparent; -fx-cursor: hand;" />
     <Button text="Kelola Data" fx:id="manageDataButton" maxWidth="Infinity" style="-fx-alignment: CENTER-LEFT; -fx-font-size: 14px; -fx-padding: 10 15 10 15; -fx-background-color: transparent; -fx-cursor: hand;" />
+    <Button text="Kelola Kategori" fx:id="manageCategoriesTabButton" maxWidth="Infinity" style="-fx-alignment: CENTER-LEFT; -fx-font-size: 14px; -fx-padding: 10 15 10 15; -fx-background-color: transparent; -fx-cursor: hand;" />
     <Button text="Pengaturan" fx:id="settingsButton" maxWidth="Infinity" style="-fx-alignment: CENTER-LEFT; -fx-font-size: 14px; -fx-padding: 10 15 10 15; -fx-background-color: transparent; -fx-cursor: hand;" />
     
     <Region VBox.vgrow="ALWAYS" />

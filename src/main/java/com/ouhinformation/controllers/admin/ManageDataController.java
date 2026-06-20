@@ -17,49 +17,42 @@ import com.ouhinformation.utils.Router;
 import org.bson.Document;
 
 public class ManageDataController {
-    @FXML private Button refreshButton;
+    @FXML private javafx.scene.control.TextField newSectionField;
     @FXML private Button addSectionButton;
     @FXML private VBox sectionsContainer;
 
     @FXML
     public void initialize() {
-        if (refreshButton != null) refreshButton.setOnAction(e -> loadData());
         if (addSectionButton != null) addSectionButton.setOnAction(e -> addNewSection());
         loadData();
     }
 
     private void addNewSection() {
-        javafx.scene.control.TextInputDialog dialog = new javafx.scene.control.TextInputDialog();
-        dialog.setTitle("Tambah Informasi Baru");
-        dialog.setHeaderText("Masukkan judul informasi baru:");
-        dialog.setContentText("Judul:");
+        String title = newSectionField.getText() == null ? "" : newSectionField.getText().trim();
+        if (title.isEmpty()) return;
 
-        dialog.showAndWait().ifPresent(title -> {
-            if (title.trim().isEmpty()) return;
+        MongoDatabase db = MongoConfig.getDatabase();
+        if (db == null) return;
 
-            MongoDatabase db = MongoConfig.getDatabase();
-            if (db == null) return;
+        MongoCollection<Document> collection = db.getCollection("sections");
+        
+        String username = com.ouhinformation.utils.Session.getInstance().getUsername();
+        if (username == null) username = "admin"; // Fallback
 
-            MongoCollection<Document> collection = db.getCollection("sections");
-            
-            String username = com.ouhinformation.utils.Session.getInstance().getUsername();
-            if (username == null) username = "admin"; // Fallback
+        String now = java.time.ZonedDateTime.now(java.time.ZoneOffset.UTC)
+                .format(java.time.format.DateTimeFormatter.ISO_INSTANT);
 
-            String now = java.time.ZonedDateTime.now(java.time.ZoneOffset.UTC)
-                    .format(java.time.format.DateTimeFormatter.ISO_INSTANT);
-
-            Document newSection = new Document("title", title)
-                    .append("content", new java.util.ArrayList<Document>())
-                    .append("createdBy", username)
-                    .append("createdAt", now)
-                    .append("updated", new java.util.ArrayList<Document>());
-            
-            collection.insertOne(newSection);
-            String newId = newSection.getObjectId("_id").toString();
-            
-            loadData(); // Refresh list
-            goToDetail(newId); // Go to editor
-        });
+        Document newSection = new Document("title", title)
+                .append("content", new java.util.ArrayList<Document>())
+                .append("createdBy", username)
+                .append("createdAt", now)
+                .append("updated", new java.util.ArrayList<Document>());
+        
+        collection.insertOne(newSection);
+        String newId = newSection.getObjectId("_id").toString();
+        
+        newSectionField.clear();
+        goToDetail(newId);
     }
 
     private void loadData() {
@@ -75,10 +68,35 @@ public class ManageDataController {
             HBox card = new HBox();
             card.setAlignment(Pos.CENTER_LEFT);
             card.setSpacing(15);
-            card.setStyle("-fx-background-color: #f8fafc; -fx-padding: 15; -fx-background-radius: 8; -fx-border-color: #e2e8f0; -fx-border-radius: 8;");
+            card.setStyle("-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 10, 0, 0, 4); -fx-border-color: #f1f5f9; -fx-border-radius: 12; -fx-border-width: 1;");
 
+            VBox infoBox = new VBox(8);
             Label titleLabel = new Label(title != null ? title : "Untitled");
-            titleLabel.setStyle("-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #1e293b;");
+            titleLabel.setStyle("-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #0f172a;");
+            
+            HBox badgesBox = new HBox(10);
+            badgesBox.setAlignment(Pos.CENTER_LEFT);
+            
+            String category = doc.getString("category");
+            Label catBadge = new Label(category != null ? category : "Tanpa Kategori");
+            catBadge.setStyle("-fx-font-size: 11px; -fx-font-weight: bold; -fx-text-fill: #047857; -fx-background-color: #d1fae5; -fx-padding: 3 8; -fx-background-radius: 10;");
+            
+            java.util.List<Document> updated = doc.getList("updated", Document.class);
+            String updateText = "Belum ada modifikasi";
+            if (updated != null && !updated.isEmpty()) {
+                Document lastUpdate = updated.get(updated.size() - 1);
+                updateText = "Diubah: " + com.ouhinformation.utils.DateFormatter.format(lastUpdate.getString("at"));
+            } else {
+                Object createdAtObj = doc.get("createdAt");
+                if (createdAtObj != null) {
+                    updateText = "Dibuat: " + com.ouhinformation.utils.DateFormatter.format(createdAtObj.toString());
+                }
+            }
+            Label metaLabel = new Label(updateText);
+            metaLabel.setStyle("-fx-font-size: 12px; -fx-text-fill: #94a3b8;");
+            
+            badgesBox.getChildren().addAll(catBadge, metaLabel);
+            infoBox.getChildren().addAll(titleLabel, badgesBox);
 
             Region spacer = new Region();
             HBox.setHgrow(spacer, Priority.ALWAYS);
@@ -91,7 +109,7 @@ public class ManageDataController {
             deleteButton.setStyle("-fx-background-color: #ef4444; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 15; -fx-background-radius: 6; -fx-cursor: hand;");
             deleteButton.setOnAction(e -> deleteSection(id, title));
 
-            card.getChildren().addAll(titleLabel, spacer, detailButton, deleteButton);
+            card.getChildren().addAll(infoBox, spacer, detailButton, deleteButton);
             sectionsContainer.getChildren().add(card);
         }
     }

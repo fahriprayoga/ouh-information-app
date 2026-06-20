@@ -32,10 +32,31 @@
                     <Insets top="30.0" right="30.0" bottom="30.0" left="30.0"/>
                 </padding>
                 
-                <Label text="Selamat Datang Admin" style="-fx-font-size: 26px; -fx-font-weight: 800; -fx-text-fill: #0f172a;" wrapText="true" />
+                <Label text="Selamat Datang di Hub Manajemen!" style="-fx-font-size: 26px; -fx-font-weight: 800; -fx-text-fill: #0f172a;" wrapText="true" />
                 
                 <Label wrapText="true" style="-fx-font-size: 15px; -fx-text-fill: #64748b; -fx-line-spacing: 6px;" 
-                       text="Pilih menu di samping untuk mengelola informasi aplikasi." />
+                       text="Anda memegang kendali penuh. Pilih menu di samping atau opsi cepat di bawah untuk mengatur konten operasional." />
+                       
+                <Region prefHeight="10.0" />
+                
+                <HBox spacing="15.0">
+                    <VBox HBox.hgrow="ALWAYS" style="-fx-background-color: #ecfdf5; -fx-padding: 20; -fx-background-radius: 8; -fx-border-color: #6ee7b7; -fx-border-radius: 8; -fx-border-width: 1;">
+                        <Label text="Status Sinkronisasi Relasi" style="-fx-font-size: 14px; -fx-text-fill: #059669; -fx-font-weight: bold;" />
+                        <Label text="AKTIF" style="-fx-font-size: 28px; -fx-text-fill: #064e3b; -fx-font-weight: 900;" />
+                    </VBox>
+                    <VBox HBox.hgrow="ALWAYS" style="-fx-background-color: #eff6ff; -fx-padding: 20; -fx-background-radius: 8; -fx-border-color: #93c5fd; -fx-border-radius: 8; -fx-border-width: 1;">
+                        <Label text="Hak Akses Dashboard" style="-fx-font-size: 14px; -fx-text-fill: #2563eb; -fx-font-weight: bold;" />
+                        <Label text="Read/Write Akses" style="-fx-font-size: 28px; -fx-text-fill: #1e3a8a; -fx-font-weight: 900;" />
+                    </VBox>
+                </HBox>
+                
+                <Region prefHeight="15.0" />
+                
+                <Label text="Tindakan Operasional Cepat:" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #334155;" />
+                <HBox spacing="15.0">
+                     <Button text="Pergi Kelola Kategori Utama" onAction="#goToManageCategoriesShortcut" style="-fx-background-color: #3b82f6; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 10 20; -fx-background-radius: 6; -fx-cursor: hand;" />
+                     <Button text="Pantau Log Data Informasi" onAction="#goToManageDataShortcut" style="-fx-background-color: #f1f5f9; -fx-text-fill: #475569; -fx-font-weight: bold; -fx-padding: 10 20; -fx-background-radius: 6; -fx-cursor: hand;" />
+                </HBox>
             </VBox>
         </VBox>
     </center>

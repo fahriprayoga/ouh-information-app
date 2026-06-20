@@ -13,12 +13,14 @@ public abstract class ContentComponent {
     protected String color;
     protected Integer fontSize;
     protected String textAlign;
+    protected Integer marginBottom;
 
     public ContentComponent(String content) {
         this.content = content != null ? content : "";
         this.color = "#475569"; // default
         this.fontSize = 14;    // default
         this.textAlign = "LEFT"; // default
+        this.marginBottom = 15; // default vertical spacing
     }
 
     public String getColor() { return color; }
@@ -29,6 +31,9 @@ public abstract class ContentComponent {
 
     public String getTextAlign() { return textAlign; }
     public void setTextAlign(String textAlign) { if (textAlign != null) this.textAlign = textAlign; }
+
+    public Integer getMarginBottom() { return marginBottom; }
+    public void setMarginBottom(Integer marginBottom) { if (marginBottom != null) this.marginBottom = marginBottom; }
 
     public void setContent(String content) {
         this.content = content != null ? content : "";
@@ -55,7 +60,8 @@ public abstract class ContentComponent {
                 .append("content", getContentFromEditor())
                 .append("color", color)
                 .append("fontSize", fontSize)
-                .append("textAlign", textAlign);
+                .append("textAlign", textAlign)
+                .append("marginBottom", marginBottom);
     }
 
     /** Factory method: buat komponen dari BSON Document */
@@ -86,6 +92,9 @@ public abstract class ContentComponent {
             comp.setColor(doc.getString("color"));
             comp.setFontSize(doc.getInteger("fontSize"));
             comp.setTextAlign(doc.getString("textAlign"));
+            
+            Integer mb = doc.getInteger("marginBottom");
+            if (mb != null) comp.setMarginBottom(mb);
         }
         return comp;
     }

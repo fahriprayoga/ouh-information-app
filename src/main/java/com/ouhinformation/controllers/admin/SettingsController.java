@@ -10,14 +10,12 @@ public class SettingsController {
 
     @FXML private Button logoutButton;
     @FXML private Button manageDataButton;
-    @FXML private Button dashboardButton;
     @FXML private Button saveSettingsButton;
 
     @FXML
     public void initialize() {
         if (logoutButton != null) logoutButton.setOnAction(e -> handleLogout());
         if (manageDataButton != null) manageDataButton.setOnAction(e -> Router.navigate("admin/manage_data", "Kelola Data"));
-        if (dashboardButton != null) dashboardButton.setOnAction(e -> Router.navigate("admin/admin", "Admin Dashboard"));
         
         if (saveSettingsButton != null) {
             saveSettingsButton.setOnAction(e -> {

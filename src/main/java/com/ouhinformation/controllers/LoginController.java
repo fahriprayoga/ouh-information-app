@@ -124,9 +124,8 @@ public class LoginController {
                 
                 session.setAttribute("name", user.getString("name"));
                 session.setUsername(user.getString("username"));
-                session.setAttribute("created_at", user.get("created_at"));
-
-                Router.navigate("admin/admin", "Admin Dashboard");
+                Session.getInstance().setUsername(username);
+                Router.navigate("admin/manage_data", "Kelola Data");
             } else {
                 showMessage("Password anda salah", "-fx-text-fill: red;");
             }
