@@ -19,6 +19,7 @@
     
     <Button text="Kelola Data" fx:id="manageDataButton" maxWidth="Infinity" style="-fx-alignment: CENTER-LEFT; -fx-font-size: 14px; -fx-padding: 10 15 10 15; -fx-background-color: transparent; -fx-cursor: hand;" />
     <Button text="Kelola Kategori" fx:id="manageCategoriesTabButton" maxWidth="Infinity" style="-fx-alignment: CENTER-LEFT; -fx-font-size: 14px; -fx-padding: 10 15 10 15; -fx-background-color: transparent; -fx-cursor: hand;" />
+    <Button text="Kelola Komentar" fx:id="manageCommentsButton" maxWidth="Infinity" style="-fx-alignment: CENTER-LEFT; -fx-font-size: 14px; -fx-padding: 10 15 10 15; -fx-background-color: transparent; -fx-cursor: hand;" />
     <Button text="Pengaturan" fx:id="settingsButton" maxWidth="Infinity" style="-fx-alignment: CENTER-LEFT; -fx-font-size: 14px; -fx-padding: 10 15 10 15; -fx-background-color: transparent; -fx-cursor: hand;" />
     
     <Region VBox.vgrow="ALWAYS" />

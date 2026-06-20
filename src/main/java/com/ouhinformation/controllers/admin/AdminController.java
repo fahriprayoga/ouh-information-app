@@ -9,12 +9,14 @@ public class AdminController {
    @FXML private Button logoutButton;
    @FXML private Button manageDataButton;
    @FXML private Button manageCategoriesTabButton;
+   @FXML private Button manageCommentsButton;
    @FXML private Button settingsButton;
 
    @FXML
    public void initialize() {
        if (manageDataButton != null) manageDataButton.setOnAction(e -> Router.navigate("admin/manage_data", "Kelola Data"));
        if (manageCategoriesTabButton != null) manageCategoriesTabButton.setOnAction(e -> Router.navigate("admin/manage_categories", "Kelola Kategori"));
+       if (manageCommentsButton != null) manageCommentsButton.setOnAction(e -> Router.navigate("admin/manage_comments", "Kelola Komentar"));
        if (settingsButton != null) settingsButton.setOnAction(e -> Router.navigate("admin/settings", "Pengaturan"));
        if (logoutButton != null) logoutButton.setOnAction(e -> handleLogout());
        
@@ -31,12 +33,15 @@ public class AdminController {
 
        if (manageDataButton != null) manageDataButton.setStyle(inactiveStyle);
        if (manageCategoriesTabButton != null) manageCategoriesTabButton.setStyle(inactiveStyle);
+       if (manageCommentsButton != null) manageCommentsButton.setStyle(inactiveStyle);
        if (settingsButton != null) settingsButton.setStyle(inactiveStyle);
 
        if (current.equals("admin/manage_data") || current.equals("admin/section_detail")) {
            if (manageDataButton != null) manageDataButton.setStyle(activeStyle);
        } else if (current.equals("admin/manage_categories")) {
            if (manageCategoriesTabButton != null) manageCategoriesTabButton.setStyle(activeStyle);
+       } else if (current.equals("admin/manage_comments")) {
+           if (manageCommentsButton != null) manageCommentsButton.setStyle(activeStyle);
        } else if (current.equals("admin/settings")) {
            if (settingsButton != null) settingsButton.setStyle(activeStyle);
        }

@@ -3,11 +3,18 @@ package com.ouhinformation.controllers;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.control.TextArea;
 import javafx.scene.layout.VBox;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.Region;
+import javafx.geometry.Pos;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.ouhinformation.components.ContentComponent;
 import com.ouhinformation.utils.MongoConfig;
+import com.ouhinformation.utils.DateFormatter;
 import com.ouhinformation.utils.Router;
 
 import org.bson.Document;
@@ -21,10 +28,17 @@ public class HelloController {
     @FXML private VBox contentContainer;
     @FXML private Label contentCreated;
     @FXML private Label contentUpdated;
+    @FXML private TextField commentNameField;
+    @FXML private TextArea commentMessageField;
+    @FXML private Button submitCommentButton;
+    @FXML private VBox commentsListContainer;
+
+    private String currentSectionId;
 
     @FXML
     private void initialize() {
         loginButton.setOnAction(event -> handleLogin());
+        if (submitCommentButton != null) submitCommentButton.setOnAction(e -> submitComment());
         loadSections();
     }
 
@@ -192,6 +206,116 @@ public class HelloController {
             }
         } else {
             contentUpdated.setText("");
+        }
+
+        // Load comments for this section
+        Object idObj = doc.get("_id");
+        if (idObj != null) {
+            currentSectionId = idObj.toString();
+            loadComments(currentSectionId);
+        }
+    }
+
+    private void submitComment() {
+        if (currentSectionId == null) return;
+
+        String name = commentNameField.getText() == null ? "" : commentNameField.getText().trim();
+        String message = commentMessageField.getText() == null ? "" : commentMessageField.getText().trim();
+
+        if (name.isEmpty() || message.isEmpty()) return;
+
+        MongoDatabase db = MongoConfig.getDatabase();
+        if (db == null) return;
+
+        String now = java.time.ZonedDateTime.now(java.time.ZoneOffset.UTC)
+                .format(java.time.format.DateTimeFormatter.ISO_INSTANT);
+
+        Document comment = new Document("sectionId", currentSectionId)
+                .append("name", name)
+                .append("message", message)
+                .append("createdAt", now)
+                .append("reply", null)
+                .append("repliedBy", null)
+                .append("repliedAt", null);
+
+        db.getCollection("comments").insertOne(comment);
+
+        commentNameField.clear();
+        commentMessageField.clear();
+        loadComments(currentSectionId);
+    }
+
+    private void loadComments(String sectionId) {
+        if (commentsListContainer == null) return;
+        commentsListContainer.getChildren().clear();
+
+        MongoDatabase db = MongoConfig.getDatabase();
+        if (db == null) return;
+
+        MongoCollection<Document> coll = db.getCollection("comments");
+        java.util.List<Document> comments = new java.util.ArrayList<>();
+        for (Document c : coll.find(new Document("sectionId", sectionId)).sort(new Document("createdAt", -1))) {
+            comments.add(c);
+        }
+
+        if (comments.isEmpty()) {
+            Label empty = new Label("Belum ada komentar. Jadilah yang pertama!");
+            empty.setStyle("-fx-text-fill: #94a3b8; -fx-font-style: italic; -fx-font-size: 13px;");
+            commentsListContainer.getChildren().add(empty);
+            return;
+        }
+
+        for (Document c : comments) {
+            VBox card = new VBox(6);
+            card.setStyle("-fx-background-color: #f8fafc; -fx-padding: 12; -fx-background-radius: 8; -fx-border-color: #e2e8f0; -fx-border-radius: 8; -fx-border-width: 1;");
+
+            // Header
+            HBox header = new HBox(8);
+            header.setAlignment(Pos.CENTER_LEFT);
+
+            String cName = c.getString("name");
+            Label nameLabel = new Label(cName != null ? cName : "Anonim");
+            nameLabel.setStyle("-fx-font-size: 13px; -fx-font-weight: bold; -fx-text-fill: #334155;");
+
+            Region spacer = new Region();
+            HBox.setHgrow(spacer, Priority.ALWAYS);
+
+            Object cDate = c.get("createdAt");
+            Label dateLabel = new Label(cDate != null ? DateFormatter.format(cDate.toString()) : "");
+            dateLabel.setStyle("-fx-font-size: 11px; -fx-text-fill: #94a3b8;");
+
+            header.getChildren().addAll(nameLabel, spacer, dateLabel);
+
+            // Message
+            String msg = c.getString("message");
+            Label msgLabel = new Label(msg != null ? msg : "");
+            msgLabel.setWrapText(true);
+            msgLabel.setStyle("-fx-font-size: 13px; -fx-text-fill: #475569;");
+
+            card.getChildren().addAll(header, msgLabel);
+
+            // Admin reply
+            String reply = c.getString("reply");
+            if (reply != null && !reply.isEmpty()) {
+                VBox replyBox = new VBox(3);
+                replyBox.setStyle("-fx-background-color: #ecfdf5; -fx-padding: 10; -fx-background-radius: 6; -fx-border-color: #6ee7b7; -fx-border-radius: 6; -fx-border-width: 1;");
+
+                String repliedBy = c.getString("repliedBy");
+                Object repliedAt = c.get("repliedAt");
+
+                Label replyHeader = new Label("\u21AA Balasan dari " + (repliedBy != null ? repliedBy : "Admin") +
+                        (repliedAt != null ? " \u2022 " + DateFormatter.format(repliedAt.toString()) : ""));
+                replyHeader.setStyle("-fx-font-size: 11px; -fx-font-weight: bold; -fx-text-fill: #059669;");
+
+                Label replyLabel = new Label(reply);
+                replyLabel.setWrapText(true);
+                replyLabel.setStyle("-fx-font-size: 12px; -fx-text-fill: #064e3b;");
+
+                replyBox.getChildren().addAll(replyHeader, replyLabel);
+                card.getChildren().add(replyBox);
+            }
+
+            commentsListContainer.getChildren().add(card);
         }
     }
 }

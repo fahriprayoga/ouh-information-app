@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.ouhinformation.controllers.admin.ManageCommentsController"
+            style="-fx-background-color: #f4f7f6;">
+
+    <top>
+        <fx:include source="top_bar.fxml" />
+    </top>
+
+    <left>
+        <fx:include source="sidebar.fxml" />
+    </left>
+
+    <center>
+        <VBox>
+            <padding>
+                <Insets top="35.0" right="35.0" bottom="35.0" left="35.0"/>
+            </padding>
+            
+            <VBox spacing="15.0" 
+                  style="-fx-background-color: white; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 15, 0, 0, 4); -fx-border-color: #f1f5f9; -fx-border-radius: 12; -fx-border-width: 1;" VBox.vgrow="ALWAYS">
+                <padding>
+                    <Insets top="30.0" right="30.0" bottom="30.0" left="30.0"/>
+                </padding>
+
+                <HBox alignment="CENTER_LEFT" spacing="10.0">
+                    <Label text="Kelola Komentar" style="-fx-font-size: 24px; -fx-font-weight: 800; -fx-text-fill: #0f172a;" />
+                    <Region HBox.hgrow="ALWAYS" />
+                </HBox>
+                
+                <Label text="Lihat dan balas komentar dari pengunjung pada setiap informasi:" style="-fx-font-size: 14px; -fx-text-fill: #64748b;" />
+                
+                <ScrollPane fitToWidth="true" style="-fx-background-color: transparent; -fx-background: transparent; -fx-border-color: transparent;" VBox.vgrow="ALWAYS">
+                    <content>
+                        <VBox fx:id="commentsContainer" spacing="12.0" style="-fx-background-color: transparent;">
+                            <padding>
+                                <Insets top="10" right="5" bottom="10" left="5" />
+                            </padding>
+                        </VBox>
+                    </content>
+                </ScrollPane>
+            </VBox>
+        </VBox>
+    </center>
+</BorderPane>
