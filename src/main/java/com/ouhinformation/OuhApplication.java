@@ -14,9 +14,10 @@ public class OuhApplication extends Application {
     public void start(Stage stage) throws IOException {
         Application.setUserAgentStylesheet(new PrimerLight().getUserAgentStylesheet());
         Router.setPrimaryStage(stage);
-        FXMLLoader fxmlLoader = new FXMLLoader(OuhApplication.class.getResource("fxml/hello-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(OuhApplication.class.getResource("fxml/welcome-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
         stage.setTitle("OUH Information App");
+        stage.getIcons().add(new javafx.scene.image.Image(OuhApplication.class.getResourceAsStream("assets/logo.png")));
         stage.setScene(scene);
         stage.setMinWidth(1280);
         stage.setMinHeight(720);

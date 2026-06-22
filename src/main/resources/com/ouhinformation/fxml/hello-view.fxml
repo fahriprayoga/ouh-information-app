@@ -28,12 +28,12 @@
 
     <left>
         <VBox spacing="5.0" prefWidth="260.0" 
-              style="-fx-background-color: white; -fx-border-color: #e2e8f0; -fx-border-width: 0 1 0 0;">
+              style="-fx-background-color: #047857; -fx-border-color: #065f46; -fx-border-width: 0 1 0 0;">
             <padding>
                 <Insets top="25.0" right="15.0" bottom="25.0" left="15.0"/>
             </padding>
             
-            <Label text="LIHAT SELENGKAPNYA" style="-fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #94a3b8; -fx-padding: 0 0 10 10;" />
+            <Label text="LIHAT SELENGKAPNYA" style="-fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #6ee7b7; -fx-padding: 0 0 10 10;" />
             
             <VBox fx:id="navbarVBox" spacing="5.0" />
         </VBox>

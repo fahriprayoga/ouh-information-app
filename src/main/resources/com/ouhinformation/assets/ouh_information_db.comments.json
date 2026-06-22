@@ -1,0 +1,12 @@
+[{
+  "_id": {
+    "$oid": "6a363efb6536177deaadcc06"
+  },
+  "sectionId": "6a3622987afc301724986db9",
+  "name": "dinda",
+  "message": "krismon suka tidur",
+  "createdAt": "2026-06-20T07:19:23.429055200Z",
+  "reply": "iya dia hobi nya tidur",
+  "repliedBy": "rancakbana",
+  "repliedAt": "2026-06-20T07:20:15.999187300Z"
+}]

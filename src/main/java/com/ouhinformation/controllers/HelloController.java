@@ -51,28 +51,28 @@ public class HelloController {
     private void setActiveButton(Button btn, boolean indent) {
         if (activeNavButton != null) {
             boolean wasIndented = activeNavButton.getUserData() != null && (Boolean) activeNavButton.getUserData();
-            activeNavButton.setStyle("-fx-font-size: 14px; -fx-font-weight: 500; -fx-text-fill: #475569; " +
+            activeNavButton.setStyle("-fx-font-size: 14px; -fx-font-weight: 500; -fx-text-fill: #d1fae5; " +
                     (wasIndented ? "-fx-padding: 10 15 10 30; " : "-fx-padding: 12 15 12 15; ") +
                     "-fx-cursor: hand; -fx-background-radius: 6; -fx-background-color: transparent;");
         }
         activeNavButton = btn;
         if (activeNavButton != null) {
-            activeNavButton.setStyle("-fx-font-size: 14px; -fx-font-weight: 600; -fx-text-fill: white; " +
+            activeNavButton.setStyle("-fx-font-size: 14px; -fx-font-weight: 600; -fx-text-fill: #047857; " +
                     (indent ? "-fx-padding: 10 15 10 30; " : "-fx-padding: 12 15 12 15; ") +
-                    "-fx-cursor: hand; -fx-background-radius: 6; -fx-background-color: #10b981;");
+                    "-fx-cursor: hand; -fx-background-radius: 6; -fx-background-color: white;");
             activeNavButton.setUserData(indent);
         }
     }
 
     private Button createNavButton(Document doc, boolean indent) {
         String title = doc.getString("title");
-        Button btn = new Button("›  " + (title != null ? title : "Untitled"));
+        Button btn = new Button(title != null ? title : "Untitled");
         btn.setMaxWidth(Double.MAX_VALUE);
         btn.getStyleClass().add("flat");
         btn.setAlignment(javafx.geometry.Pos.BASELINE_LEFT);
         btn.setUserData(indent);
         
-        String baseStyle = "-fx-font-size: 14px; -fx-font-weight: 500; -fx-text-fill: #475569; " +
+        String baseStyle = "-fx-font-size: 14px; -fx-font-weight: 500; -fx-text-fill: #d1fae5; " +
                 (indent ? "-fx-padding: 10 15 10 30; " : "-fx-padding: 12 15 12 15; ") +
                 "-fx-cursor: hand; -fx-background-radius: 6; -fx-background-color: transparent;";
         
@@ -80,9 +80,9 @@ public class HelloController {
         
         btn.setOnMouseEntered(e -> {
             if (btn != activeNavButton) {
-                btn.setStyle("-fx-font-size: 14px; -fx-font-weight: 600; -fx-text-fill: #10b981; " +
+                btn.setStyle("-fx-font-size: 14px; -fx-font-weight: 600; -fx-text-fill: white; " +
                         (indent ? "-fx-padding: 10 15 10 30; " : "-fx-padding: 12 15 12 15; ") +
-                        "-fx-cursor: hand; -fx-background-radius: 6; -fx-background-color: #ecfdf5;");
+                        "-fx-cursor: hand; -fx-background-radius: 6; -fx-background-color: rgba(255, 255, 255, 0.1);");
             }
         });
         btn.setOnMouseExited(e -> {
@@ -121,10 +121,23 @@ public class HelloController {
         for (java.util.Map.Entry<String, java.util.List<Document>> entry : categoryMap.entrySet()) {
             String category = entry.getKey();
             
-            Button toggleBtn = new Button("▼  " + category.toUpperCase());
+            Button toggleBtn = new Button(category.toUpperCase());
             toggleBtn.setMaxWidth(Double.MAX_VALUE);
-            toggleBtn.setAlignment(javafx.geometry.Pos.BASELINE_LEFT);
-            toggleBtn.setStyle("-fx-font-size: 13px; -fx-font-weight: 800; -fx-text-fill: #64748b; -fx-padding: 10 15 5 15; -fx-cursor: hand; -fx-background-color: transparent;");
+            toggleBtn.setAlignment(javafx.geometry.Pos.CENTER_LEFT);
+            toggleBtn.setStyle("-fx-font-size: 13px; -fx-font-weight: 800; -fx-text-fill: #a7f3d0; -fx-padding: 10 15 5 15; -fx-cursor: hand; -fx-background-color: transparent;");
+            
+            javafx.scene.shape.SVGPath arrowIcon = new javafx.scene.shape.SVGPath();
+            String arrowDown = "M19.5 8.25l-7.5 7.5-7.5-7.5";
+            String arrowRight = "M8.25 4.5l7.5 7.5-7.5 7.5";
+            arrowIcon.setContent(arrowDown);
+            arrowIcon.setFill(javafx.scene.paint.Color.TRANSPARENT);
+            arrowIcon.setStroke(javafx.scene.paint.Color.web("#a7f3d0"));
+            arrowIcon.setStrokeWidth(2.0);
+            arrowIcon.setStrokeLineCap(javafx.scene.shape.StrokeLineCap.ROUND);
+            arrowIcon.setStrokeLineJoin(javafx.scene.shape.StrokeLineJoin.ROUND);
+            
+            toggleBtn.setGraphic(arrowIcon);
+            toggleBtn.setGraphicTextGap(10.0);
             
             VBox dropdownItems = new VBox();
             
@@ -132,7 +145,7 @@ public class HelloController {
                 boolean isVisible = !dropdownItems.isVisible();
                 dropdownItems.setVisible(isVisible);
                 dropdownItems.setManaged(isVisible);
-                toggleBtn.setText((isVisible ? "▼  " : "▶  ") + category.toUpperCase());
+                arrowIcon.setContent(isVisible ? arrowDown : arrowRight);
             });
             
             dropdownItems.setVisible(true);

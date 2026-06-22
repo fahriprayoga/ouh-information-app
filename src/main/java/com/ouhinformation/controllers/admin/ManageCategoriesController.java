@@ -160,36 +160,53 @@ public class ManageCategoriesController {
         });
     }
 
-    private void addSectionToCategory(String categoryName) {
-        javafx.scene.control.TextInputDialog dialog = new javafx.scene.control.TextInputDialog();
-        dialog.setTitle("Tambah Informasi");
-        dialog.setHeaderText("Informasi baru pada kategori: " + categoryName);
-        dialog.setContentText("Masukkan Judul:");
+    private static class SectionItem {
+        org.bson.types.ObjectId id;
+        String title;
+        public SectionItem(org.bson.types.ObjectId id, String title) {
+            this.id = id;
+            this.title = title == null || title.isEmpty() ? "Untitled" : title;
+        }
+        @Override
+        public String toString() {
+            return title;
+        }
+    }
 
-        dialog.showAndWait().ifPresent(title -> {
-            if (!title.trim().isEmpty()) {
-                MongoDatabase db = MongoConfig.getDatabase();
-                if (db != null) {
-                    MongoCollection<Document> collection = db.getCollection("sections");
-                    
-                    String now = java.time.ZonedDateTime.now(java.time.ZoneOffset.UTC)
-                            .format(java.time.format.DateTimeFormatter.ISO_INSTANT);
-                            
-                    Document newDoc = new Document("title", title.trim())
-                            .append("category", categoryName)
-                            .append("description", "")
-                            .append("content", new java.util.ArrayList<>())
-                            .append("createdBy", com.ouhinformation.utils.Session.getInstance().getUsername())
-                            .append("createdAt", now)
-                            .append("updatedAt", now)
-                            .append("updated", new java.util.ArrayList<>());
-                            
-                    collection.insertOne(newDoc);
-                    
-                    String id = newDoc.getObjectId("_id").toHexString();
-                    com.ouhinformation.utils.Router.navigateWithParam("admin/section_detail", "Edit Informasi", id);
-                }
+    private void addSectionToCategory(String categoryName) {
+        MongoDatabase db = MongoConfig.getDatabase();
+        if (db == null) return;
+        
+        MongoCollection<Document> collection = db.getCollection("sections");
+        java.util.List<SectionItem> availableSections = new java.util.ArrayList<>();
+        
+        for (Document doc : collection.find()) {
+            String currentCat = doc.getString("category");
+            if (currentCat == null || !currentCat.equals(categoryName)) {
+                availableSections.add(new SectionItem(doc.getObjectId("_id"), doc.getString("title")));
             }
+        }
+        
+        if (availableSections.isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Info");
+            alert.setHeaderText(null);
+            alert.setContentText("Tidak ada data informasi yang tersedia untuk dipindahkan ke kategori ini.");
+            alert.showAndWait();
+            return;
+        }
+
+        javafx.scene.control.ChoiceDialog<SectionItem> dialog = new javafx.scene.control.ChoiceDialog<>(availableSections.get(0), availableSections);
+        dialog.setTitle("Tambah Informasi ke Kategori");
+        dialog.setHeaderText("Pilih informasi untuk dimasukkan ke kategori: " + categoryName);
+        dialog.setContentText("Pilih Informasi:");
+
+        dialog.showAndWait().ifPresent(selected -> {
+            collection.updateOne(
+                    new Document("_id", selected.id),
+                    new Document("$set", new Document("category", categoryName))
+            );
+            loadData();
         });
     }
 }

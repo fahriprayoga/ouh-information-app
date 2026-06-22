@@ -1,0 +1,12 @@
+[{
+  "_id": {
+    "$oid": "6a360fa5a2deee30a00c89ec"
+  },
+  "name": "Orang Utan"
+},
+{
+  "_id": {
+    "$oid": "6a3628b0f5c52455c107c006"
+  },
+  "name": "Info lainnya"
+}]

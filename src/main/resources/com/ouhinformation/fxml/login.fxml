@@ -21,7 +21,7 @@
                 </padding>
 
                 <VBox alignment="CENTER" spacing="5.0">
-                    <Label styleClass="title-2" text="Welcome Back" />
+                    <Label styleClass="title-2" text="Welcome Back" style="-fx-text-fill: #047857;" />
                     <Label styleClass="text-muted" text="Masukkan username dan password untuk lanjut" />
                 </VBox>
 
@@ -48,9 +48,9 @@
                         </StackPane>
                     </VBox>
 
-                    <Button fx:id="loginButton" maxWidth="1.7976931348623157E308" styleClass="accent" text="LOG IN" />
+                    <Button fx:id="loginButton" maxWidth="1.7976931348623157E308" style="-fx-background-color: #047857; -fx-text-fill: white; -fx-font-weight: bold;" text="LOG IN" />
                     
-                    <Button fx:id="backButton" maxWidth="1.7976931348623157E308" text="Kembali ke Beranda" />
+                    <Button fx:id="backButton" maxWidth="1.7976931348623157E308" style="-fx-background-color: transparent; -fx-border-color: #047857; -fx-border-radius: 4; -fx-text-fill: #047857; -fx-font-weight: bold;" text="Kembali ke Beranda" />
 
                     <Label fx:id="messageLabel" alignment="CENTER" maxWidth="1.7976931348623157E308" styleClass="danger" wrapText="true" />
 

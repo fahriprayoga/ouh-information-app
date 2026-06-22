@@ -132,6 +132,9 @@ public class ManageDataController {
                 MongoCollection<Document> collection = db.getCollection("sections");
                 collection.deleteOne(new org.bson.Document("_id", new org.bson.types.ObjectId(id)));
                 
+                // Cascade delete comments
+                db.getCollection("comments").deleteMany(new Document("sectionId", id));
+                
                 loadData();
             }
         });

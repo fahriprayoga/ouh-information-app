@@ -1,0 +1,497 @@
+[{
+  "_id": {
+    "$oid": "6a3622987afc301724986db9"
+  },
+  "title": "KRISMON",
+  "content": [
+    {
+      "type": "list",
+      "content": "Jenis Kelamin: Laki-laki\nTanggal penyelamatan: 30 Mei 2016\nPerkiraan tahun kelahiran : 1996\nKondisi: Trauma dan kelemahan fisik",
+      "color": "#003333",
+      "fontSize": 14,
+      "textAlign": "LEFT",
+      "marginBottom": 15,
+      "isOrdered": false
+    },
+    {
+      "type": "image",
+      "content": "file:/C:/Users/PAHRI%20PRAYOGA/Downloads/WhatsApp%20Image%202026-06-19%20at%207.04.49%20PM.jpeg",
+      "color": "#475569",
+      "fontSize": 75,
+      "textAlign": "LEFT",
+      "marginBottom": 15,
+      "caption": ""
+    },
+    {
+      "type": "paragraf",
+      "content": "Krismon disita pada tahun 2016 sebagai hewan peliharaan ilegal. Ia telah dipelihara selama 19 tahun di dalam kandang logam yang ukurannya hanya sedikit lebih besar dari tubuhnya . Kita tahu ia menghabiskan 19 tahun di sana karena namanya merupakan singkatan dari 'Krisis Moneter', atau Krisis Moneter, yang terjadi pada tahun 1997 di Indonesia. Setelah sekian lama, pintu yang ia gunakan untuk masuk ke kandang sudah tidak cukup besar lagi, sehingga kandang harus dibongkar untuk mengeluarkannya.",
+      "color": "#475569",
+      "fontSize": 14,
+      "textAlign": "LEFT",
+      "marginBottom": 15
+    },
+    {
+      "type": "paragraf",
+      "content": "Setelah menghabiskan bertahun-tahun di ruang yang sangat terbatas, Krismon masih menunjukkan kelemahan fisik dan mental yang cukup parah dan tidak akan pernah bisa bertahan hidup di alam liar .",
+      "color": "#475569",
+      "fontSize": 14,
+      "textAlign": "LEFT",
+      "marginBottom": 15
+    },
+    {
+      "type": "paragraf",
+      "content": "Sejak disita, Krismon telah menghabiskan banyak waktu berlatih dengan para penjaganya, mendapatkan hadiah karena bergerak ketika diminta. Ini berarti dia mendapatkan latihan fisik, semacam fisioterapi, dan hasilnya dia telah meningkat pesat. Ia kini secara bertahap mulai terbiasa berada di luar ruangan di Suaka Orangutan dan memanjat tali serta menara, dan terlihat semakin percaya diri setiap harinya.",
+      "color": "#475569",
+      "fontSize": 14,
+      "textAlign": "LEFT",
+      "marginBottom": 15
+    }
+  ],
+  "createdBy": "rancakbana",
+  "createdAt": "2026-06-20T05:18:16.425074400Z",
+  "updated": [
+    {
+      "by": "rancakbana",
+      "at": "2026-06-20T05:24:59.343320300Z"
+    }
+  ],
+  "category": "Orang Utan",
+  "description": "",
+  "updatedAt": "2026-06-20T05:24:59.343320300Z"
+},
+{
+  "_id": {
+    "$oid": "6a3624e3f5c52455c107c001"
+  },
+  "title": "FAHZREN",
+  "content": [
+    {
+      "type": "list",
+      "content": "Jenis Kelamin: Laki-laki\nTanggal pemulangan: 9 Oktober 2013\nPerkiraan tahun kelahiran : 1998\nKondisi: Sudah dewasa dan terlalu terbiasa dengan orang lain",
+      "color": "#475569",
+      "fontSize": 16,
+      "textAlign": "LEFT",
+      "marginBottom": 15,
+      "isOrdered": false
+    },
+    {
+      "type": "image",
+      "content": "file:/C:/Users/PAHRI%20PRAYOGA/Downloads/WhatsApp%20Image%202026-06-19%20at%207.04.50%20PM.jpeg",
+      "color": "#475569",
+      "fontSize": 75,
+      "textAlign": "LEFT",
+      "marginBottom": 15,
+      "caption": "fahzren"
+    },
+    {
+      "type": "paragraf",
+      "content": "Fahzren diselundupkan secara ilegal ke Malaysia saat masih bayi, dan tumbuh besar dengan tampil di 'pertunjukan hewan', jenis pertunjukan yang melibatkan mengendarai sepeda, bermain golf, dan hal-hal semacam itu. Peraturan perdagangan hewan internasional mengharuskan hewan yang diselundupkan secara ilegal ke luar negeri untuk dipulangkan ke negara asalnya, sehingga ia dikembalikan ke Indonesia pada tahun 2013.",
+      "color": "#475569",
+      "fontSize": 16,
+      "textAlign": "LEFT",
+      "marginBottom": 15
+    },
+    {
+      "type": "paragraf",
+      "content": "Karena saat itu ia sudah menjadi orangutan jantan dewasa yang besar dan kuat, serta terbiasa berinteraksi dekat dengan manusia, diputuskan bahwa ia kemungkinan besar tidak akan mampu belajar bertahan hidup lagi di alam liar, dan berpotensi berbahaya jika bertemu dengan orang-orang di hutan. Oleh karena itu, diputuskan bahwa ia harus menghabiskan sisa hidupnya di Suaka Orangutan.",
+      "color": "#475569",
+      "fontSize": 16,
+      "textAlign": "LEFT",
+      "marginBottom": 15
+    },
+    {
+      "type": "paragraf",
+      "content": "Karena pengalamannya di Malaysia, Fahzren sangat tertarik pada hal-hal teknis dan telah merusak beberapa vegetasi dan bangunan di pulaunya. Dia juga suka pamer untuk memastikan orang-orang tahu bahwa dialah 'bosnya' , tetapi sekarang dia jauh lebih santai dan tenang daripada sebelum dia pindah ke Suaka Orangutan.",
+      "color": "#475569",
+      "fontSize": 16,
+      "textAlign": "LEFT",
+      "marginBottom": 15
+    }
+  ],
+  "createdBy": "rancakbana",
+  "createdAt": "2026-06-20T05:28:03.675778Z",
+  "updated": [
+    {
+      "by": "rancakbana",
+      "at": "2026-06-20T05:30:15.975535Z"
+    },
+    {
+      "by": "rancakbana",
+      "at": "2026-06-20T05:30:19.592108300Z"
+    },
+    {
+      "by": "rancakbana",
+      "at": "2026-06-20T05:40:38.088648800Z"
+    }
+  ],
+  "category": "Orang Utan",
+  "description": "",
+  "updatedAt": "2026-06-20T05:40:38.088648800Z"
+},
+{
+  "_id": {
+    "$oid": "6a362592f5c52455c107c002"
+  },
+  "title": "DINA",
+  "content": [
+    {
+      "type": "list",
+      "content": "Jenis Kelamin: Perempuan\nTanggal penyelamatan: 27 Juli 2016\nPerkiraan tahun kelahiran : 2015\nKondisi: Buta",
+      "color": "#003333",
+      "fontSize": 16,
+      "textAlign": "LEFT",
+      "marginBottom": 15,
+      "isOrdered": false
+    },
+    {
+      "type": "image",
+      "content": "file:/C:/Users/PAHRI%20PRAYOGA/Downloads/WhatsApp%20Image%202026-06-19%20at%207.04.52%20PM.jpeg",
+      "color": "#475569",
+      "fontSize": 75,
+      "textAlign": "LEFT",
+      "marginBottom": 15,
+      "caption": "gambar dina"
+    },
+    {
+      "type": "paragraf",
+      "content": "Dina diselamatkan dari perdagangan satwa liar ilegal ketika dia masih bayi, berusia kurang dari 1 tahun.\n\nKetika pertama kali tiba di SOCP setelah disita, ia didiagnosis menderita malaria, yang mengakibatkan infeksi otak yang melumpuhkannya hampir sepenuhnya dari leher ke bawah.",
+      "color": "#003333",
+      "fontSize": 16,
+      "textAlign": "LEFT",
+      "marginBottom": 15
+    },
+    {
+      "type": "paragraf",
+      "content": "Tambahkan fakta menarik atau cerita penyelamatan.",
+      "color": "#003333",
+      "fontSize": 16,
+      "textAlign": "LEFT",
+      "marginBottom": 15
+    },
+    {
+      "type": "list",
+      "content": "Untungnya, setelah berbulan-bulan perawatan dan perhatian intensif, ia mendapatkan kembali 100% mobilitasnya , dan tidak lagi menunjukkan tanda-tanda fisik penyakitnya, tetapi ia tidak pernah mendapatkan kembali penglihatannya dan tetap hampir sepenuhnya buta.\nSelama beberapa tahun di SOCP, para penjaga bekerja sama dengan Dina untuk meningkatkan keterampilannya dan sekarang dia memiliki petualangan baru dalam hidupnya di Suaka Orangutan. Di hari-hari panas, dia suka bergelantungan di jembatannya dan bermain air untuk mendinginkan diri.",
+      "color": "#003333",
+      "fontSize": 14,
+      "textAlign": "LEFT",
+      "marginBottom": 15,
+      "isOrdered": true
+    }
+  ],
+  "createdBy": "rancakbana",
+  "createdAt": "2026-06-20T05:30:58.928546300Z",
+  "updated": [
+    {
+      "by": "rancakbana",
+      "at": "2026-06-20T05:32:49.908623900Z"
+    },
+    {
+      "by": "rancakbana",
+      "at": "2026-06-20T05:33:22.836542900Z"
+    },
+    {
+      "by": "rancakbana",
+      "at": "2026-06-20T05:40:44.305499500Z"
+    }
+  ],
+  "category": "Orang Utan",
+  "description": "",
+  "updatedAt": "2026-06-20T05:40:44.305499500Z"
+},
+{
+  "_id": {
+    "$oid": "6a36263df5c52455c107c003"
+  },
+  "title": "LEWIS",
+  "content": [
+    {
+      "type": "list",
+      "content": "Jenis Kelamin: Laki-laki\nTanggal penyelamatan: 30 Agustus 2016\nPerkiraan tahun kelahiran : 1991\nKondisi: Buta",
+      "color": "#003333",
+      "fontSize": 16,
+      "textAlign": "LEFT",
+      "marginBottom": 15,
+      "isOrdered": false
+    },
+    {
+      "type": "image",
+      "content": "file:/C:/Users/PAHRI%20PRAYOGA/Downloads/WhatsApp%20Image%202026-06-19%20at%207.04.52%20PM%20(1).jpeg",
+      "color": "#475569",
+      "fontSize": 75,
+      "textAlign": "LEFT",
+      "marginBottom": 15,
+      "caption": "gambar lewis"
+    },
+    {
+      "type": "paragraf",
+      "content": "Meskipun mengalami kesulitan yang tak terbayangkan, Lewis telah berhasil mengatasi rintangan. Setelah pulih dari trauma akibat ditembak 40 kali oleh beberapa petani di tepi hutan, ia awalnya menemukan perawatan dan ketenangan di Pusat Karantina dan Rehabilitasi SOCP.",
+      "color": "#003333",
+      "fontSize": 16,
+      "textAlign": "LEFT",
+      "marginBottom": 15
+    },
+    {
+      "type": "paragraf",
+      "content": "Lewis adalah orangutan yang luar biasa tinggi, dengan lengan yang sangat panjang. Terkadang dia juga berjalan tegak lurus, dengan dua kaki, sangat mirip manusia!",
+      "color": "#003333",
+      "fontSize": 16,
+      "textAlign": "LEFT",
+      "marginBottom": 15
+    },
+    {
+      "type": "paragraf",
+      "content": "Kini, Lewis menikmati babak baru dalam hidupnya di Orangutan Haven. Momen pertama kali ia keluar dari rumah dan menuju pulaunya sungguh menakjubkan. Dengan santai dan teratur, ia menjelajahi lingkungan barunya dengan penuh rasa ingin tahu, melambaikan tangannya ke sana kemari untuk 'merasakan' apakah ada sesuatu di dekatnya, menunjukkan ketahanan makhluk-makhluk luar biasa ini.",
+      "color": "#003333",
+      "fontSize": 16,
+      "textAlign": "LEFT",
+      "marginBottom": 15
+    }
+  ],
+  "createdBy": "rancakbana",
+  "createdAt": "2026-06-20T05:33:49.581063Z",
+  "updated": [
+    {
+      "by": "rancakbana",
+      "at": "2026-06-20T05:35:41.696761400Z"
+    },
+    {
+      "by": "rancakbana",
+      "at": "2026-06-20T05:40:54.056537Z"
+    }
+  ],
+  "category": "Orang Utan",
+  "description": "",
+  "updatedAt": "2026-06-20T05:40:54.056537Z"
+},
+{
+  "_id": {
+    "$oid": "6a3626fbf5c52455c107c004"
+  },
+  "title": "LEUSER",
+  "content": [
+    {
+      "type": "list",
+      "content": "Jenis Kelamin: Laki-laki\nTanggal penyelamatan: 20 Februari 2004\nPerkiraan tahun kelahiran : 1999\nKondisi: Buta",
+      "color": "#003333",
+      "fontSize": 16,
+      "textAlign": "LEFT",
+      "marginBottom": 15,
+      "isOrdered": false
+    },
+    {
+      "type": "image",
+      "content": "file:/C:/Users/PAHRI%20PRAYOGA/Downloads/WhatsApp%20Image%202026-06-19%20at%207.04.53%20PM.jpeg",
+      "color": "#475569",
+      "fontSize": 75,
+      "textAlign": "LEFT",
+      "marginBottom": 15,
+      "caption": "gambar leuser"
+    },
+    {
+      "type": "paragraf",
+      "content": "Leuser disita sebagai hewan peliharaan ilegal ketika ia berusia sekitar 5 tahun dan dilepaskan ke alam liar di Taman Nasional Bukit Tigapuluh di Jambi setahun kemudian.",
+      "color": "#475569",
+      "fontSize": 16,
+      "textAlign": "LEFT",
+      "marginBottom": 15
+    },
+    {
+      "type": "paragraf",
+      "content": "Ia hidup subur sebagai orangutan liar di hutan selama beberapa tahun, hingga suatu hari, ia memasuki lahan pertanian di dekatnya dan ditembak 62 kali oleh beberapa penduduk desa. Akibatnya, ia menjadi buta total dan tidak lagi dapat bernavigasi serta mencari makanan di hutan, sehingga ia kembali ke SOCP untuk perawatan jangka panjang.",
+      "color": "#475569",
+      "fontSize": 16,
+      "textAlign": "LEFT",
+      "marginBottom": 15
+    },
+    {
+      "type": "paragraf",
+      "content": "Leuser adalah orangutan pertama yang diizinkan keluar ke salah satu pulau di Orangutan Haven . Ia sangat senang bisa keluar dari kandang sehingga tidak kembali ke rumahnya selama 6 minggu, tetapi sekarang ia dengan mudah datang untuk makan ketika para penjaganya memanggilnya.",
+      "color": "#475569",
+      "fontSize": 16,
+      "textAlign": "LEFT",
+      "marginBottom": 15
+    },
+    {
+      "type": "paragraf",
+      "content": "Leuser kini menikmati kesempatan ketiga untuk hidup damai , memanjat tali dan kayu di pulaunya serta menjelajahi lingkungan barunya.",
+      "color": "#475569",
+      "fontSize": 16,
+      "textAlign": "LEFT",
+      "marginBottom": 15
+    }
+  ],
+  "createdBy": "rancakbana",
+  "createdAt": "2026-06-20T05:36:59.114661800Z",
+  "updated": [
+    {
+      "by": "rancakbana",
+      "at": "2026-06-20T05:38:44.941129Z"
+    },
+    {
+      "by": "rancakbana",
+      "at": "2026-06-20T05:41:08.033372900Z"
+    }
+  ],
+  "category": "Orang Utan",
+  "description": "",
+  "updatedAt": "2026-06-20T05:41:08.033372900Z"
+},
+{
+  "_id": {
+    "$oid": "6a362771f5c52455c107c005"
+  },
+  "title": "DEK NONG",
+  "content": [
+    {
+      "type": "list",
+      "content": "Jenis Kelamin: Perempuan\nTanggal penyelamatan: 7 September 2007\nPerkiraan tahun kelahiran : 1999\nKondisi: Masalah artritis",
+      "color": "#003333",
+      "fontSize": 16,
+      "textAlign": "LEFT",
+      "marginBottom": 15,
+      "isOrdered": false
+    },
+    {
+      "type": "image",
+      "content": "file:/C:/Users/PAHRI%20PRAYOGA/Downloads/WhatsApp%20Image%202026-06-19%20at%207.04.54%20PM.jpeg",
+      "color": "#475569",
+      "fontSize": 75,
+      "textAlign": "LEFT",
+      "marginBottom": 15,
+      "caption": ""
+    },
+    {
+      "type": "paragraf",
+      "content": "Awalnya diselamatkan pada tahun 2007 sebagai hewan peliharaan ilegal dan dilepaskan ke alam liar setahun kemudian, Dek Nong menghadapi berbagai tantangan di hutan, termasuk kelumpuhan misterius pada tahun 2009.",
+      "color": "#475569",
+      "fontSize": 14,
+      "textAlign": "LEFT",
+      "marginBottom": 15
+    },
+    {
+      "type": "paragraf",
+      "content": "Meskipun ia pulih dengan sangat baik, pergelangan tangan kirinya tetap bengkok pada sudut yang tidak wajar, dan ia masih memiliki beberapa masalah kecil dengan beberapa persendian lainnya, tetapi selain itu ia sehat dan bugar.",
+      "color": "#475569",
+      "fontSize": 14,
+      "textAlign": "LEFT",
+      "marginBottom": 15
+    },
+    {
+      "type": "paragraf",
+      "content": "Dek Nong adalah individu yang sangat cerdas dan ingin tahu , selalu mengamati siapa yang melakukan apa di sekitar lembah pulau itu. Ketika pertama kali diizinkan keluar ke salah satu pulau, dia dengan hati-hati menjelajahi jembatan, menara, dan keranjang, jelas menikmati kebebasan barunya.",
+      "color": "#475569",
+      "fontSize": 14,
+      "textAlign": "LEFT",
+      "marginBottom": 15
+    }
+  ],
+  "createdBy": "rancakbana",
+  "createdAt": "2026-06-20T05:38:57.277529300Z",
+  "updated": [
+    {
+      "by": "rancakbana",
+      "at": "2026-06-20T05:40:07.087398500Z"
+    },
+    {
+      "by": "rancakbana",
+      "at": "2026-06-20T05:41:01.056576200Z"
+    }
+  ],
+  "category": "Orang Utan",
+  "description": "",
+  "updatedAt": "2026-06-20T05:41:01.056576200Z"
+},
+{
+  "_id": {
+    "$oid": "6a3628def5c52455c107c007"
+  },
+  "title": "Informasi Lainnya",
+  "content": [
+    {
+      "type": "heading",
+      "content": "Jembatan Haven",
+      "color": "#003333",
+      "fontSize": 20,
+      "textAlign": "LEFT",
+      "marginBottom": 15
+    },
+    {
+      "type": "image",
+      "content": "file:/C:/Users/PAHRI%20PRAYOGA/Downloads/WhatsApp%20Image%202026-06-19%20at%207.12.09%20PM.jpeg",
+      "color": "#475569",
+      "fontSize": 75,
+      "textAlign": "LEFT",
+      "marginBottom": 15,
+      "caption": ""
+    },
+    {
+      "type": "paragraf",
+      "content": "Jembatan Haven merupakan konstruksi unik di Indonesia. Jembatan Haven adalah jembatan bambu bentang tunggal terpanjang di Asia Tenggara, dengan panjang 29,6 meter. Jembatan ini dibangun pada tahun 2017 oleh tim internal kami, dengan waktu konstruksi selama sembilan bulan.",
+      "color": "#003333",
+      "fontSize": 16,
+      "textAlign": "LEFT",
+      "marginBottom": 15
+    },
+    {
+      "type": "heading",
+      "content": "Pulau Orangutan",
+      "color": "#003333",
+      "fontSize": 20,
+      "textAlign": "LEFT",
+      "marginBottom": 15
+    },
+    {
+      "type": "image",
+      "content": "file:/C:/Users/PAHRI%20PRAYOGA/Downloads/WhatsApp%20Image%202026-06-19%20at%207.13.03%20PM.jpeg",
+      "color": "#475569",
+      "fontSize": 75,
+      "textAlign": "LEFT",
+      "marginBottom": 15,
+      "caption": ""
+    },
+    {
+      "type": "paragraf",
+      "content": "Orangutan di Suaka Orangutan hidup di pulau-pulau besar yang ditumbuhi vegetasi alami dan dikelilingi oleh parit air. Masing-masing pulau memiliki area dalam ruangan yang terhubung sehingga hewan-hewan tersebut dapat berlindung dari hujan dan menemukan tempat yang kering dan hangat untuk tidur.\n\nTur berpemandu ke pulau-pulau orangutan berangkat secara teratur sesuai jadwal harian.",
+      "color": "#003333",
+      "fontSize": 16,
+      "textAlign": "LEFT",
+      "marginBottom": 15
+    },
+    {
+      "type": "heading",
+      "content": "Pertanian Ramah lingkungan ",
+      "color": "#003333",
+      "fontSize": 20,
+      "textAlign": "LEFT",
+      "marginBottom": 15
+    },
+    {
+      "type": "image",
+      "content": "file:/C:/Users/PAHRI%20PRAYOGA/Downloads/WhatsApp%20Image%202026-06-19%20at%207.14.13%20PM.jpeg",
+      "color": "#475569",
+      "fontSize": 75,
+      "textAlign": "LEFT",
+      "marginBottom": 15,
+      "caption": ""
+    },
+    {
+      "type": "paragraf",
+      "content": "Eco-farm menanam buah dan sayuran organik menggunakan metode berkelanjutan. Sebagian besar hasil pertanian yang disajikan di restoran Orangutan Haven diproduksi di eco farm ini. Jangan ragu untuk berjalan-jalan dan menjelajahi area tersebut, dan jika Anda ingin membeli sesuatu, beri tahu staf kami.",
+      "color": "#003333",
+      "fontSize": 16,
+      "textAlign": "LEFT",
+      "marginBottom": 15
+    }
+  ],
+  "createdBy": "rancakbana",
+  "createdAt": "2026-06-20T05:45:02.007379200Z",
+  "updated": [
+    {
+      "by": "rancakbana",
+      "at": "2026-06-20T05:48:41.589501100Z"
+    }
+  ],
+  "category": null,
+  "description": "selain orang utan, di OUH juga memiliki beberapa hal hal dan fasilitas sebagai berikut",
+  "updatedAt": "2026-06-20T05:48:41.589501100Z"
+}]
